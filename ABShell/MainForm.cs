@@ -27,8 +27,9 @@ namespace ABShell
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (File.Exists(Application.StartupPath + "\\ABShellSetting.conf"))
-              loadSetting();
+            //if (File.Exists(Application.StartupPath + "\\ABShellSetting.conf"))
+            if (File.Exists(@"D:\ABShellSetting.conf"))
+                loadSetting();
             UserSetting locUser = usersList.Find(x => x.name == Environment.UserName.ToString());
             if (locUser == null || !locUser.changeShell)
             {
@@ -61,7 +62,7 @@ namespace ABShell
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Process.Start(@"D:\WorkSpace\ABShell\ABShell\bin\Debug\ABShell.exe");
+            Process.Start(@"C:\Windows\explorer.exe");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -95,7 +96,8 @@ namespace ABShell
 
         public void saveSetting()
         {
-            StreamWriter swtr = new StreamWriter(Application.StartupPath + "\\ABShellSetting.conf", false);
+            //StreamWriter swtr = new StreamWriter(Application.StartupPath + "\\ABShellSetting.conf", false);
+            StreamWriter swtr = new StreamWriter(@"D:\ABShellSetting.conf", false);
             try
             {
                 XmlSerializer xmlser = new XmlSerializer(typeof(List<UserSetting>));
@@ -108,7 +110,8 @@ namespace ABShell
         }
         public void loadSetting()
         {
-            StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
+            //StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
+            StreamReader srdr = new StreamReader(@"D:\ABShellSetting.conf");
             try
             {
                 XmlSerializer xmlser = new XmlSerializer(typeof(List<UserSetting>));
@@ -147,6 +150,11 @@ namespace ABShell
             RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
             hkWinlogon.SetValue("Shell", "ABShell.exe");
             //MessageBox.Show(hkWinlogon.GetValue("Shell").ToString()); 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\Windows\regedit.exe");
         }
     }
 }
