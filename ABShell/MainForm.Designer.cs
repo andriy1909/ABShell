@@ -31,7 +31,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -75,14 +74,6 @@
             this.Column2.FillWeight = 41.04718F;
             this.Column2.HeaderText = "Column2";
             this.Column2.Name = "Column2";
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(30, 151);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 147);
-            this.panel1.TabIndex = 4;
-            this.panel1.Visible = false;
             // 
             // button1
             // 
@@ -157,7 +148,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -170,7 +160,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
