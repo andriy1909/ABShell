@@ -33,11 +33,20 @@ namespace ABShell
             UserSetting locUser = usersList.Find(x => x.name == Environment.UserName.ToString());
             if (locUser == null || !locUser.changeShell)
             {
-                if (MessageBox.Show("Start explorer", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                //if (MessageBox.Show("Start explorer", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                //{
+                    var runningProcs = from proc in Process.GetProcesses(".") orderby proc.Id select proc;
+                if (runningProcs.Count(p => p.ProcessName.Contains("explorer")) == 0)
                 {
-                    Process.Start(@"C:\Windows\explorer.exe");
+                    var proc = new Process();
+                    proc.StartInfo.FileName = "C:\\Windows\\explorer.exe";
+                    proc.StartInfo.UseShellExecute = true;
+                    proc.Start();
+                    //Process.Start(@"C:\Windows\explorer.exe");
                     Application.Exit();
+
                 }
+                //}
             }
             SelectQuery query = new SelectQuery("Win32_UserAccount");
             ManagementObjectSearcher users = new ManagementObjectSearcher(query);
@@ -62,7 +71,11 @@ namespace ABShell
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Process.Start(@"C:\Windows\explorer.exe");
+            //Process.Start(@"C:\Windows\explorer.exe");
+            var proc = new Process();
+            proc.StartInfo.FileName = "C:\\Windows\\explorer.exe";
+            proc.StartInfo.UseShellExecute = true;
+            proc.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
