@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.Xml.Serialization;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace ABShell
 {
@@ -38,10 +39,13 @@ namespace ABShell
                     var runningProcs = from proc in Process.GetProcesses(".") orderby proc.Id select proc;
                 if (runningProcs.Count(p => p.ProcessName.Contains("explorer")) == 0)
                 {
-                    var proc = new Process();
+                    /*var proc = new Process();
                     proc.StartInfo.FileName = "C:\\Windows\\explorer.exe";
                     proc.StartInfo.UseShellExecute = true;
-                    proc.Start();
+                    proc.Start();*/
+                    setShell("explorer.exe");
+                    var p = new ProcessStartInfo("cmd", "/r shutdown -f -r") { CreateNoWindow = true };
+                    Process.Start(p);
                     //Process.Start(@"C:\Windows\explorer.exe");
                     Application.Exit();
 
@@ -155,19 +159,28 @@ namespace ABShell
 
         private void button5_Click(object sender, EventArgs e)
         {
+            setShell("ABShell.exe");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\Windows\regedit.exe");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            setShell("explorer.exe");
+        }
+
+        public void setShell(string name)
+        {
             RegistryKey hklm = Registry.LocalMachine;
             RegistryKey hkSoftware = hklm.OpenSubKey("Software");
             RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
             RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows NT");
             RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
             RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
-            hkWinlogon.SetValue("Shell", "ABShell.exe");
-            //MessageBox.Show(hkWinlogon.GetValue("Shell").ToString()); 
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Process.Start(@"C:\Windows\regedit.exe");
+            hkWinlogon.SetValue("Shell", name);
         }
     }
 }
