@@ -18,6 +18,7 @@ namespace ABShell
 {
     public partial class MainForm : Form
     {
+        private bool isSetting = false;
         private List<UserSetting> usersList;
 
         public MainForm()
@@ -31,6 +32,7 @@ namespace ABShell
             //if (File.Exists(Application.StartupPath + "\\ABShellSetting.conf"))
             if (File.Exists(@"D:\ABShellSetting.conf"))
                 loadSetting();
+            /*
             UserSetting locUser = usersList.Find(x => x.name == Environment.UserName.ToString());
             if (locUser == null || !locUser.changeShell)
             {
@@ -39,10 +41,10 @@ namespace ABShell
                     var runningProcs = from proc in Process.GetProcesses(".") orderby proc.Id select proc;
                 if (runningProcs.Count(p => p.ProcessName.Contains("explorer")) == 0)
                 {
-                    /*var proc = new Process();
-                    proc.StartInfo.FileName = "C:\\Windows\\explorer.exe";
-                    proc.StartInfo.UseShellExecute = true;
-                    proc.Start();*/
+                    //var proc = new Process();
+                    //proc.StartInfo.FileName = "C:\\Windows\\explorer.exe";
+                    //proc.StartInfo.UseShellExecute = true;
+                    //proc.Start();
                     setShell("explorer.exe");
                     var p = new ProcessStartInfo("cmd", "/r shutdown -f -r") { CreateNoWindow = true };
                     Process.Start(p);
@@ -51,7 +53,7 @@ namespace ABShell
 
                 }
                 //}
-            }
+            }*/
             SelectQuery query = new SelectQuery("Win32_UserAccount");
             ManagementObjectSearcher users = new ManagementObjectSearcher(query);
             foreach (ManagementObject user in users.Get())
@@ -85,30 +87,6 @@ namespace ABShell
         private void button2_Click(object sender, EventArgs e)
         {
             Process.Start(@"C:\ABOFFICE\client\O4Client.exe");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            /*RegistryKey hklm = Registry.LocalMachine;
-            RegistryKey hkSoftware = hklm.OpenSubKey("Software");
-            RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
-            RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows NT");
-            RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
-            RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
-            hkWinlogon.SetValue("Shell", "ABShell.exe");
-            MessageBox.Show(hkWinlogon.GetValue("Shell").ToString());*/
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            /*RegistryKey hklm = Registry.LocalMachine;
-            RegistryKey hkSoftware = hklm.OpenSubKey("Software");
-            RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
-            RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows NT");
-            RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
-            RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
-            hkWinlogon.SetValue("Shell", "explorer.exe");
-            MessageBox.Show(hkWinlogon.GetValue("Shell").ToString());*/
         }
 
         public void saveSetting()
@@ -147,7 +125,7 @@ namespace ABShell
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex==1 && e.RowIndex >=0)
+            if (e.ColumnIndex == 1 && e.RowIndex >= 0)
             {
                 UserSetting tmpUser = usersList.Find(x => x.name == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 if (tmpUser != null)
@@ -181,6 +159,52 @@ namespace ABShell
             RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
             RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
             hkWinlogon.SetValue("Shell", name);
+        }
+
+        private void btnPowerOff_Click(object sender, EventArgs e)
+        {
+            Reboot power = new Reboot();
+            power.halt(false, false);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Reboot power = new Reboot();
+            power.halt(true, false);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Reboot power = new Reboot();
+            power.Lock();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            isSetting = !isSetting;
+            foreach (var item in pnButtons.Controls)
+            {
+                if (item.GetType() == new ButtonNew().GetType())
+                {
+                    ((ButtonNew)item).setVisible(isSetting);
+                    ((ButtonNew)item).Visible = isSetting || ((ButtonNew)item).getIsVisible();
+                }
+            }
+        }
+
+        private void buttonNew2_Load(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\ABOFFICE\client\O4Client.exe");
+        }
+
+        private void buttonNew6_Load(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\Program Files\Microsoft Office\root\Office16\excel.exe");
+        }
+
+        private void buttonNew1_Load(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\Program Files\Microsoft Office\root\Office16\winword.exe");
         }
     }
 }

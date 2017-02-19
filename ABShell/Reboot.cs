@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace ABShell
 {
-    class reboot
+    class Reboot
     {
         //импортируем API функцию InitiateSystemShutdown
         [DllImport("advapi32.dll", EntryPoint = "InitiateSystemShutdownEx")]

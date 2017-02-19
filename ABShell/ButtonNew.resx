@@ -117,47 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="windowsrestart_6112" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\windowsrestart_6112.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="windowsturnoff_9317" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\windowsturnoff_9317.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="windowslogoff_2434" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\windowslogoff_2434.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="settings_5054" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\settings_5054.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftoffice2007excel_8537" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2007excel_8537.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftofficeword_8198" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftofficeword_8198.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftoffice2003excel_74201" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2003excel_7420.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="yahoowidgetengine_3827" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\yahoowidgetengine_3827.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftoffice2003excel_7420" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2003excel_7420.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftoffice2007excel_85371" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2007excel_8537.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ab" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\ab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ab1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\ab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="settings_50541" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\settings_5054.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftoffice2007word_5551" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2007word_5551.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

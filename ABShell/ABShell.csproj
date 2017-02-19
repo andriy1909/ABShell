@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonNew.Designer.cs">
+      <DependentUpon>ButtonNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reboot.cs" />
     <Compile Include="UserSetting.cs" />
+    <EmbeddedResource Include="ButtonNew.resx">
+      <DependentUpon>ButtonNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +123,36 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\settings_5054.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\microsoftoffice2003excel_7420.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\ab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\microsoftoffice2007excel_8537.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\windowslogoff_2434.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\windowsrestart_6112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\windowsturnoff_9317.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\yahoowidgetengine_3827.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\microsoftofficeword_8198.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\microsoftoffice2007word_5551.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
