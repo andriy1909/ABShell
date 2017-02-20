@@ -19,19 +19,22 @@ namespace ABShell
     public partial class MainForm : Form
     {
         private bool isSetting = false;
+        private MainData mainData;
         private List<UserSetting> usersList;
+        private List<ProgramSetting> programsList;
 
         public MainForm()
         {
             InitializeComponent();
             usersList = new List<UserSetting>();
+            programsList = new List<ProgramSetting>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //if (File.Exists(Application.StartupPath + "\\ABShellSetting.conf"))
-            if (File.Exists(@"D:\ABShellSetting.conf"))
-                loadSetting();
+            //if (File.Exists(@"D:\ABShellSetting.conf"))
+            //    loadSetting();
             /*
             UserSetting locUser = usersList.Find(x => x.name == Environment.UserName.ToString());
             if (locUser == null || !locUser.changeShell)
@@ -69,6 +72,7 @@ namespace ABShell
                     dataGridView1.Rows.Add(new object[] { tmpUser.name, tmpUser.changeShell });
                 }
             }
+            Height = 133;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -95,8 +99,9 @@ namespace ABShell
             StreamWriter swtr = new StreamWriter(@"D:\ABShellSetting.conf", false);
             try
             {
-                XmlSerializer xmlser = new XmlSerializer(typeof(List<UserSetting>));
-                xmlser.Serialize(swtr, usersList);
+                mainData = new MainData() { usersList = usersList, programsList = programsList };
+                XmlSerializer xmlser = new XmlSerializer(typeof(MainData));
+                xmlser.Serialize(swtr, mainData);
             }
             finally
             {
@@ -109,8 +114,10 @@ namespace ABShell
             StreamReader srdr = new StreamReader(@"D:\ABShellSetting.conf");
             try
             {
-                XmlSerializer xmlser = new XmlSerializer(typeof(List<UserSetting>));
-                usersList = (List<UserSetting>)xmlser.Deserialize(srdr);
+                XmlSerializer xmlser = new XmlSerializer(typeof(MainData));
+                mainData = (MainData)xmlser.Deserialize(srdr);
+                usersList = mainData.usersList;
+                programsList = mainData.programsList;
             }
             finally
             {
@@ -167,13 +174,13 @@ namespace ABShell
             power.halt(false, false);
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void btnRestart_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
             power.halt(true, false);
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
             power.Lock();
@@ -190,6 +197,11 @@ namespace ABShell
                     ((ButtonNew)item).Visible = isSetting || ((ButtonNew)item).getIsVisible();
                 }
             }
+            button1.Visible = isSetting;
+            if (isSetting)
+                Height = 328;
+            else
+                Height = 133;
         }
 
         private void buttonNew2_Load(object sender, EventArgs e)
@@ -205,6 +217,19 @@ namespace ABShell
         private void buttonNew1_Load(object sender, EventArgs e)
         {
             Process.Start(@"C:\Program Files\Microsoft Office\root\Office16\winword.exe");
+            
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            if (isSetting)
+                loadButton(sender as Button);
+            else
+                Process.Start();
+        }
+
+        private void loadButton(Button button)
+        {
         }
     }
 }
