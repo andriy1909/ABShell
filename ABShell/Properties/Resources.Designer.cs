@@ -83,6 +83,16 @@ namespace ABShell.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aboffice {
+            get {
+                object obj = ResourceManager.GetObject("aboffice", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap microsoftoffice2003excel_7420 {
             get {
                 object obj = ResourceManager.GetObject("microsoftoffice2003excel_7420", resourceCulture);
