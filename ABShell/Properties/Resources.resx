@@ -118,17 +118,86 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="windowsrestart_6112" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\windowsrestart_6112.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="program_3090" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\program_3090.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="microsoftoffice2007word_5551" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2007word_5551.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="plainicon.com-49216-128px-2dd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\plainicon.com-49216-128px-2dd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="package_network_1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\package_network_1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="windowsturnoff_9317" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\windowsturnoff_9317.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shutdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\shutdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="windowsrestart_6112" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\windowsrestart_6112.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_50541" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\settings_5054.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TeamViewer02x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\TeamViewer02x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="microsoftoffice2007excel_85371" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\microsoftoffice2007excel_8537.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="box_grey_1252" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\box_grey_1252.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aboffice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\aboffice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yahoowidgetengine_3827" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\yahoowidgetengine_3827.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="microsoftoffice2003excel_74201" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\microsoftoffice2003excel_7420.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="windowslogoff_2434" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\windowslogoff_2434.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cleanSett" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\cleanSett.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="desktop2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\desktop2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apply_3742" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\apply_3742.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="microsoftofficeword_8198" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\microsoftofficeword_8198.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoff-64_4700" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\logoff-64_4700.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\ab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_ok_1908" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\button_ok_1908.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="desktop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\desktop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_cancel_6758" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\button_cancel_6758.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chrome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Chrome.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="taskmgr-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\taskmgr-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="microsoftoffice2003excel_7420" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\microsoftoffice2003excel_7420.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,31 +205,19 @@
   <data name="settings_5054" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\settings_5054.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="microsoftoffice2007excel_8537" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2007excel_8537.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftoffice2003excel_74201" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2003excel_7420.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="yahoowidgetengine_3827" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\yahoowidgetengine_3827.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftofficeword_8198" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftofficeword_8198.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoftoffice2007excel_85371" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\microsoftoffice2007excel_8537.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ab" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\ab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="microsoftoffice2007word_5551" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\microsoftoffice2007word_5551.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ab1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\ab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings_50541" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\settings_5054.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="microsoftoffice2007excel_8537" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\microsoftoffice2007excel_8537.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="aboffice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\aboffice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shutdown2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\shutdown2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="redLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\redLine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

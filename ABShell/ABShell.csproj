@@ -69,6 +69,12 @@
     <Compile Include="ButtonNew.Designer.cs">
       <DependentUpon>ButtonNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="ButtonRedLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonRedLine.Designer.cs">
+      <DependentUpon>ButtonRedLine.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainData.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -80,9 +86,18 @@
     <Compile Include="ProgramSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reboot.cs" />
+    <Compile Include="SettingBut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingBut.Designer.cs">
+      <DependentUpon>SettingBut.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserSetting.cs" />
     <EmbeddedResource Include="ButtonNew.resx">
       <DependentUpon>ButtonNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonRedLine.resx">
+      <DependentUpon>ButtonRedLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -97,6 +112,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingBut.resx">
+      <DependentUpon>SettingBut.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +175,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resourse\aboffice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\shutdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\button_cancel_6758.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\button_ok_1908.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\apply_3742.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\box_grey_1252.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\TeamViewer02x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\package_network_1600.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\Chrome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\shutdown2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\logoff-64_4700.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\desktop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\program_3090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\plainicon.com-49216-128px-2dd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\cleanSett.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\taskmgr-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\desktop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourse\redLine.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
