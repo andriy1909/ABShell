@@ -72,7 +72,7 @@ namespace ABShell
                     dataGridView1.Rows.Add(new object[] { tmpUser.name, tmpUser.changeShell });
                 }
             }
-            Height = 133;
+            Height = 135;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -159,13 +159,23 @@ namespace ABShell
 
         public void setShell(string name)
         {
-            RegistryKey hklm = Registry.LocalMachine;
+            RegistryKey hklm = Registry.CurrentUser;
             RegistryKey hkSoftware = hklm.OpenSubKey("Software");
             RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
             RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows NT");
             RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
             RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
             hkWinlogon.SetValue("Shell", name);
+        }
+        public string getShell()
+        {
+            RegistryKey hklm = Registry.CurrentUser;
+            RegistryKey hkSoftware = hklm.OpenSubKey("Software");
+            RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
+            RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows NT");
+            RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
+            RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
+            return (string)hkWinlogon.GetValue("Shell", "");
         }
 
         private void btnPowerOff_Click(object sender, EventArgs e)
@@ -199,9 +209,9 @@ namespace ABShell
             }
             button1.Visible = isSetting;
             if (isSetting)
-                Height = 328;
+                Height = 310;
             else
-                Height = 133;
+                Height = 135;
         }
 
         private void buttonNew2_Load(object sender, EventArgs e)
@@ -222,14 +232,51 @@ namespace ABShell
 
         private void button_Click(object sender, EventArgs e)
         {
-            if (isSetting)
+            SettingBut form = new SettingBut();
+            form.ShowDialog();
+            /*if (isSetting)
                 loadButton(sender as Button);
             else
-                Process.Start();
+                Process.Start("");*/
         }
 
         private void loadButton(Button button)
         {
+        }
+
+        private void btUseShell_Click(object sender, EventArgs e)
+        {
+            btUseShell.LineVisible = !btUseShell.LineVisible;
+            if (!btUseShell.LineVisible)
+            {
+                setShell(Application.ExecutablePath);
+                label8.Text = "Заменить Windows Shell";
+            }
+            else
+            {
+                setShell("explorer.exe");
+                label8.Text = "Разрешить Windows Shell";
+            }
+        }
+
+        private void btDisp_Click(object sender, EventArgs e)
+        {
+            btDisp.LineVisible = !btDisp.LineVisible;
+            if (!btUseShell.LineVisible)
+            {
+                setShell(Application.ExecutablePath);
+                label6.Text = "Запретить диспечер задач";
+            }
+            else
+            {
+                setShell("explorer.exe");
+                label6.Text = "Разрешить диспечер задач";
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer");
         }
     }
 }
