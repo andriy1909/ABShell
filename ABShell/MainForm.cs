@@ -232,12 +232,11 @@ namespace ABShell
 
         private void button_Click(object sender, EventArgs e)
         {
-            SettingBut form = new SettingBut();
-            form.ShowDialog();
-            /*if (isSetting)
-                loadButton(sender as Button);
+            Button button = sender as Button;
+            if (isSetting)
+                loadButton(button);
             else
-                Process.Start("");*/
+                Process.Start(programsList.Find(x=> x.id == button.TabIndex).path);
         }
 
         private void loadButton(Button button)
