@@ -22,6 +22,7 @@ namespace ABShell
         private MainData mainData;
         private List<UserSetting> usersList;
         private List<ProgramSetting> programsList;
+        private bool b;
 
         public MainForm()
         {
@@ -72,7 +73,7 @@ namespace ABShell
                     dataGridView1.Rows.Add(new object[] { tmpUser.name, tmpUser.changeShell });
                 }
             }
-            Height = 135;
+            //Height = 95;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -209,9 +210,9 @@ namespace ABShell
             }
             button1.Visible = isSetting;
             if (isSetting)
-                Height = 310;
+                Height = 290;
             else
-                Height = 135;
+                Height = 95;
         }
 
         private void buttonNew2_Load(object sender, EventArgs e)
@@ -235,8 +236,8 @@ namespace ABShell
             Button button = sender as Button;
             if (isSetting)
                 loadButton(button);
-            else
-                Process.Start(programsList.Find(x=> x.id == button.TabIndex).path);
+            //else
+                //Process.Start(programsList.Find(x=> x.id == button.TabIndex).path);
         }
 
         private void loadButton(Button button)
@@ -276,6 +277,31 @@ namespace ABShell
         private void button12_Click(object sender, EventArgs e)
         {
             Process.Start("explorer");
+        }
+
+        private void button_MouseDown(object sender, MouseEventArgs e)
+        {
+            //(sender as Button).Location = new Point((sender as Button).Location.X + 1, (sender as Button).Location.Y);
+        }
+
+        private void button7_DragDrop(object sender, DragEventArgs e)
+        {
+            
+        }
+
+        private void button7_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).Location = e.Location;
+        }
+
+        private void button7_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void button7_DragDrop_1(object sender, DragEventArgs e)
+        {
+            
         }
     }
 }

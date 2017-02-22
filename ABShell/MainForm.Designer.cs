@@ -75,7 +75,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(214)))), ((int)(((byte)(235)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -105,7 +105,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(247, 139);
+            this.dataGridView1.Size = new System.Drawing.Size(247, 158);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -236,6 +236,7 @@
             this.button6.TabIndex = 32;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button_Click);
+            this.button6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
             // 
             // label1
             // 
@@ -278,13 +279,12 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.button12);
             this.panel5.Controls.Add(this.button9);
-            this.panel5.Controls.Add(this.button7);
             this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.button10);
             this.panel5.Controls.Add(this.button8);
-            this.panel5.Location = new System.Drawing.Point(0, 98);
+            this.panel5.Location = new System.Drawing.Point(0, 195);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(620, 172);
+            this.panel5.Size = new System.Drawing.Size(620, 94);
             this.panel5.TabIndex = 44;
             // 
             // button12
@@ -321,12 +321,15 @@
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(4, 3);
+            this.button7.Location = new System.Drawing.Point(47, 98);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 75);
             this.button7.TabIndex = 33;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button_Click);
+            this.button7.DragDrop += new System.Windows.Forms.DragEventHandler(this.button7_DragDrop_1);
+            this.button7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button7_MouseMove);
+            this.button7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button7_MouseUp);
             // 
             // button1
             // 
@@ -397,16 +400,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(938, 271);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(214)))), ((int)(((byte)(235)))));
+            this.ClientSize = new System.Drawing.Size(938, 290);
+            this.ControlBox = false;
             this.Controls.Add(this.btDisp);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnButtons);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btUseShell);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CompLife";
