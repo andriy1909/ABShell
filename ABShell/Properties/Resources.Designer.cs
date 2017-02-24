@@ -73,6 +73,16 @@ namespace ABShell.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ab1 {
+            get {
+                object obj = ResourceManager.GetObject("ab1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aboffice {
             get {
                 object obj = ResourceManager.GetObject("aboffice", resourceCulture);
@@ -183,9 +193,29 @@ namespace ABShell.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap microsoftoffice2003excel_74201 {
+            get {
+                object obj = ResourceManager.GetObject("microsoftoffice2003excel_74201", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap microsoftoffice2007excel_8537 {
             get {
                 object obj = ResourceManager.GetObject("microsoftoffice2007excel_8537", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap microsoftoffice2007excel_85371 {
+            get {
+                object obj = ResourceManager.GetObject("microsoftoffice2007excel_85371", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +306,16 @@ namespace ABShell.Properties {
         internal static System.Drawing.Bitmap settings_5054 {
             get {
                 object obj = ResourceManager.GetObject("settings_5054", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_50541 {
+            get {
+                object obj = ResourceManager.GetObject("settings_50541", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
