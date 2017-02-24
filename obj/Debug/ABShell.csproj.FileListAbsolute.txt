@@ -1,0 +1,15 @@
+D:\ABShell\ABShell\bin\Debug\ABShell.exe.config
+D:\ABShell\ABShell\obj\Debug\ABShell.csprojResolveAssemblyReference.cache
+D:\ABShell\ABShell\obj\Debug\ABShell.ButtonNew.resources
+D:\ABShell\ABShell\obj\Debug\ABShell.ButtonRedLine.resources
+D:\ABShell\ABShell\obj\Debug\ABShell.MainForm.resources
+D:\ABShell\ABShell\obj\Debug\ABShell.Properties.Resources.resources
+D:\ABShell\ABShell\obj\Debug\ABShell.SettingBut.resources
+D:\ABShell\ABShell\obj\Debug\ABShell.csproj.GenerateResource.Cache
+D:\ABShell\ABShell\bin\Debug\ABShell.exe
+D:\ABShell\ABShell\bin\Debug\ABShell.pdb
+D:\ABShell\ABShell\obj\Debug\ABShell.exe
+D:\ABShell\ABShell\obj\Debug\ABShell.pdb
+D:\WorkSpace\ABShell\ABShell\bin\Debug\ABShell.exe.config
+D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.exe
+D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.pdb

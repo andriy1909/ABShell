@@ -32,34 +32,22 @@ namespace ABShell
             programsList = new List<ProgramSetting>();
         }
 
-        private void SaveValue(string name, string value)
-        {
-            //Properties.Settings.Default.PropertyValues.Add(new SettingsPropertyValue(new SettingsProperty(name)));
-            Properties.Settings.Default.Setting = value;
-            Properties.Settings.Default.Save();
-           /* if (config.AppSettings.Settings[name] == null)
-            {
-                config.AppSettings.Settings.Add(name, value);
-            }
-            else config.AppSettings.Settings[name].Value = value;
-            config.Save(ConfigurationSaveMode.Modified);*/
-        }
-
-        private string LoadValue(string name)
-        {
-            object ob = Properties.Settings.Default.Setting;
-            return ob.ToString();
-            /*
-            if (config.AppSettings.Settings[name] == null)
-            {
-                return null;
-            }
-            else return config.AppSettings.Settings[name].Value;
-            */
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.UseWinShell)
+            {
+                btUseShell.LineVisible = false;
+                setShell("explorer.exe");
+                label8.Text = "Разрешить Windows Shell";
+            }
+            else
+            {
+                btUseShell.LineVisible = true;
+                setShell(Application.ExecutablePath);
+                label8.Text = "Заменить Windows Shell";
+            }
+
+
             //if (File.Exists(Application.StartupPath + "\\ABShellSetting.conf"))
             //if (File.Exists(@"D:\ABShellSetting.conf"))
             //    loadSetting();
@@ -153,7 +141,7 @@ namespace ABShell
                 UserSetting tmpUser = usersList.Find(x => x.name == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 if (tmpUser != null)
                 {
-                   // tmpUser.changeShell = (bool)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                    // tmpUser.changeShell = (bool)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
                 }
             }
         }
@@ -223,7 +211,7 @@ namespace ABShell
                     ((ButtonNew)item).Visible = isSetting || ((ButtonNew)item).getIsVisible();
                 }
             }
-            button1.Visible = isSetting;
+            addBut.Visible = isSetting;
             if (isSetting)
                 Height = 310;
             else
@@ -243,49 +231,51 @@ namespace ABShell
         private void buttonNew1_Load(object sender, EventArgs e)
         {
             Process.Start(@"C:\Program Files\Microsoft Office\root\Office16\winword.exe");
-            
+
         }
 
         private void button_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;
             if (isSetting)
-                loadButton(button);
-            else
-                Process.Start(programsList.Find(x=> x.id == button.TabIndex).path);
-        }
-
-        private void loadButton(Button button)
-        {
+            {
+                SettingBut form = new SettingBut();
+                form.setButton(programsList.Find(x => x.id == (sender as Button).TabIndex));
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    programsList.Add(form.getButtonSetting());
+                    paintButtons((sender as Button).Parent, true);
+                }
+            }
         }
 
         private void btUseShell_Click(object sender, EventArgs e)
         {
             btUseShell.LineVisible = !btUseShell.LineVisible;
-            if (!btUseShell.LineVisible)
+            Properties.Settings.Default.UseWinShell = !btUseShell.LineVisible;
+            if (!btnUseShell.LineVisible)
             {
                 setShell(Application.ExecutablePath);
-                label8.Text = "Заменить Windows Shell";
+                label8.Text = "Разрешить Windows Shell";
             }
             else
             {
-                setShell("explorer.exe");
-                label8.Text = "Разрешить Windows Shell";
+                setShell("explorer.exe");                
+                label8.Text = "Заменить Windows Shell";
             }
         }
 
         private void btDisp_Click(object sender, EventArgs e)
         {
-            btDisp.LineVisible = !btDisp.LineVisible;
-            if (!btUseShell.LineVisible)
+            btnDisp.LineVisible = !btnDisp.LineVisible;
+            if (!btnDisp.LineVisible)
             {
-                setShell(Application.ExecutablePath);
-                label6.Text = "Запретить диспечер задач";
+                //setShell(Application.ExecutablePath);
+                label6.Text = "Разрешить диспечер задач";
             }
             else
             {
-                setShell("explorer.exe");
-                label6.Text = "Разрешить диспечер задач";
+                //setShell("explorer.exe");
+                label6.Text = "Запретить диспечер задач";
             }
         }
 
@@ -294,14 +284,40 @@ namespace ABShell
             Process.Start("explorer");
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        public void paintButtons(object panel, bool multiline)
         {
-            SaveValue("v", textBox1.Text);
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void addButton(Button button)
         {
-            textBox1.Text = LoadValue("v");
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            SettingBut form = new SettingBut();
+            form.ShowDialog();
+        }
+
+        private void addBut_Click(object sender, EventArgs e)
+        {
+            Button button = new Button();
+            if (programsList.Find(x => x.id == button.TabIndex) != null)
+            {
+                button.TabIndex = button.TabIndex + 1;
+                addButton(button);
+            }
+            SettingBut form = new SettingBut();
+            form.setButton(button.TabIndex);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                programsList.Add(form.getButtonSetting());
+                paintButtons(pnContents, true);
+                button.Parent = pnContents;
+            }
+            else
+                Controls.Remove(button);
         }
     }
 }

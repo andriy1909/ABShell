@@ -16,6 +16,7 @@ namespace ABShell
         public Image image;
         public string login;
         public string password;
+        public string server;
         public bool isVisible;
 
         public ProgramSetting()

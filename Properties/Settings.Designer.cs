@@ -25,25 +25,25 @@ namespace ABShell.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("555")]
-        public string Setting {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseWinShell {
             get {
-                return ((string)(this["Setting"]));
+                return ((bool)(this["UseWinShell"]));
             }
             set {
-                this["Setting"] = value;
+                this["UseWinShell"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseDisp {
             get {
-                return ((string)(this["Setting1"]));
+                return ((bool)(this["UseDisp"]));
             }
             set {
-                this["Setting1"] = value;
+                this["UseDisp"] = value;
             }
         }
     }

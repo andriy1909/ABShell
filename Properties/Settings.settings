@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ABShell.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Setting" Type="System.String" Scope="User">
-      <Value Profile="(Default)">555</Value>
+    <Setting Name="UseWinShell" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Setting1" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="UseDisp" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
