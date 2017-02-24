@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.Xml.Serialization;
 using System.IO;
+using System.Configuration;
 using System.Runtime.InteropServices;
 
 namespace ABShell
@@ -22,12 +23,39 @@ namespace ABShell
         private MainData mainData;
         private List<UserSetting> usersList;
         private List<ProgramSetting> programsList;
+        Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
         public MainForm()
         {
             InitializeComponent();
             usersList = new List<UserSetting>();
             programsList = new List<ProgramSetting>();
+        }
+
+        private void SaveValue(string name, string value)
+        {
+            //Properties.Settings.Default.PropertyValues.Add(new SettingsPropertyValue(new SettingsProperty(name)));
+            Properties.Settings.Default.Setting = value;
+            Properties.Settings.Default.Save();
+           /* if (config.AppSettings.Settings[name] == null)
+            {
+                config.AppSettings.Settings.Add(name, value);
+            }
+            else config.AppSettings.Settings[name].Value = value;
+            config.Save(ConfigurationSaveMode.Modified);*/
+        }
+
+        private string LoadValue(string name)
+        {
+            object ob = Properties.Settings.Default.Setting;
+            return ob.ToString();
+            /*
+            if (config.AppSettings.Settings[name] == null)
+            {
+                return null;
+            }
+            else return config.AppSettings.Settings[name].Value;
+            */
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,19 +85,21 @@ namespace ABShell
                 }
                 //}
             }*/
+
             SelectQuery query = new SelectQuery("Win32_UserAccount");
             ManagementObjectSearcher users = new ManagementObjectSearcher(query);
             foreach (ManagementObject user in users.Get())
             {
+                //if (user.)
                 UserSetting tmpUser = usersList.Find(x => x.name == user["Name"].ToString());
                 if (tmpUser == null)
                 {
                     usersList.Add(new UserSetting() { name = user["Name"].ToString() });
-                    dataGridView1.Rows.Add(new object[] { user["Name"], false });
+                    dataGridView1.Rows.Add(new object[] { user["Name"] });
                 }
                 else
                 {
-                    dataGridView1.Rows.Add(new object[] { tmpUser.name, tmpUser.changeShell });
+                    dataGridView1.Rows.Add(new object[] { tmpUser.name });
                 }
             }
             Height = 135;
@@ -77,20 +107,6 @@ namespace ABShell
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Process.Start(@"C:\Windows\explorer.exe");
-            var proc = new Process();
-            proc.StartInfo.FileName = "C:\\Windows\\explorer.exe";
-            proc.StartInfo.UseShellExecute = true;
-            proc.Start();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Process.Start(@"C:\ABOFFICE\client\O4Client.exe");
         }
 
         public void saveSetting()
@@ -137,7 +153,7 @@ namespace ABShell
                 UserSetting tmpUser = usersList.Find(x => x.name == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 if (tmpUser != null)
                 {
-                    tmpUser.changeShell = (bool)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                   // tmpUser.changeShell = (bool)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
                 }
             }
         }
@@ -277,6 +293,15 @@ namespace ABShell
         {
             Process.Start("explorer");
         }
-        
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            SaveValue("v", textBox1.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = LoadValue("v");
+        }
     }
 }

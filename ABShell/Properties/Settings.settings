@@ -2,7 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ABShell.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Setting" Type="System.String" Scope="User">
+    <Setting Name="Setting" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">555</Value>
+    </Setting>
+    <Setting Name="Setting1" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

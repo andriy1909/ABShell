@@ -23,15 +23,24 @@ namespace ABShell.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("555")]
         public string Setting {
             get {
                 return ((string)(this["Setting"]));
             }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting1 {
+            get {
+                return ((string)(this["Setting1"]));
+            }
             set {
-                this["Setting"] = value;
+                this["Setting1"] = value;
             }
         }
     }
