@@ -14,6 +14,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Configuration;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ABShell
 {
@@ -94,16 +95,12 @@ namespace ABShell
              {
                  swtr.Close();
              }*/
-            StreamWriter swtr = new StreamWriter(Application.StartupPath + "\\ABShellSetting.conf", false);
-            try
+
+            //Сохраняем состояние объекта superHuman в двоичном формате
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (var fStream = new FileStream("./ABShellSetting.dat", FileMode.Create, FileAccess.Write, FileShare.None))
             {
-               // mainData = new MainData() { usersList = usersList, programsList = programsList };
-                XmlSerializer xmlser = new XmlSerializer(typeof(List<ProgramSetting>));
-                xmlser.Serialize(swtr, programsList);
-            }
-            finally
-            {
-                swtr.Close();
+                formatter.Serialize(fStream, programsList);
             }
         }
         public void loadSetting()
@@ -132,17 +129,10 @@ namespace ABShell
         }
         public void loadSetting2()
         {
-             StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
-            try
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (var fStream = File.OpenRead("./ABShellSetting.dat"))
             {
-                XmlSerializer xmlser = new XmlSerializer(typeof(List<ProgramSetting>));
-                programsList = (List<ProgramSetting>)xmlser.Deserialize(srdr);
-                //usersList = mainData.usersList;
-                //programsList = mainData.programsList;
-            }
-            finally
-            {
-                srdr.Close();
+                programsList = (List<ProgramSetting>)formatter.Deserialize(fStream);
             }
         }
 
