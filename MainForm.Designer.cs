@@ -42,21 +42,22 @@
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnHead = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pnContents = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.addBut = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.buttonApp4 = new ABShell.ButtonApp();
+            this.buttonApp5 = new ABShell.ButtonApp();
+            this.buttonApp6 = new ABShell.ButtonApp();
+            this.buttonApp3 = new ABShell.ButtonApp();
+            this.buttonApp2 = new ABShell.ButtonApp();
+            this.buttonApp1 = new ABShell.ButtonApp();
             this.btnUseShell = new ABShell.ButtonRedLine();
             this.btnDisp = new ABShell.ButtonRedLine();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -200,42 +201,13 @@
             // pnHead
             // 
             this.pnHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnHead.Controls.Add(this.button11);
-            this.pnHead.Controls.Add(this.button6);
+            this.pnHead.Controls.Add(this.buttonApp3);
+            this.pnHead.Controls.Add(this.buttonApp2);
+            this.pnHead.Controls.Add(this.buttonApp1);
             this.pnHead.Location = new System.Drawing.Point(0, 0);
             this.pnHead.Name = "pnHead";
             this.pnHead.Size = new System.Drawing.Size(515, 85);
             this.pnHead.TabIndex = 28;
-            // 
-            // button11
-            // 
-            this.button11.BackgroundImage = global::ABShell.Properties.Resources.TeamViewer02x128;
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button11.Location = new System.Drawing.Point(85, 5);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 75);
-            this.button11.TabIndex = 41;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button_Click);
-            this.button11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
-            // 
-            // button6
-            // 
-            this.button6.BackgroundImage = global::ABShell.Properties.Resources.aboffice;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(5, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 75);
-            this.button6.TabIndex = 40;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button_Click);
-            this.button6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
             // 
             // label1
             // 
@@ -277,16 +249,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnContents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnContents.Controls.Add(this.button12);
-            this.pnContents.Controls.Add(this.button9);
-            this.pnContents.Controls.Add(this.button7);
-            this.pnContents.Controls.Add(this.addBut);
-            this.pnContents.Controls.Add(this.button10);
-            this.pnContents.Controls.Add(this.button8);
+            this.pnContents.Controls.Add(this.buttonApp4);
+            this.pnContents.Controls.Add(this.buttonApp5);
+            this.pnContents.Controls.Add(this.buttonApp6);
             this.pnContents.Location = new System.Drawing.Point(0, 91);
             this.pnContents.Name = "pnContents";
-            this.pnContents.Size = new System.Drawing.Size(524, 202);
+            this.pnContents.Size = new System.Drawing.Size(514, 202);
             this.pnContents.TabIndex = 44;
+            this.pnContents.Paint += new System.Windows.Forms.PaintEventHandler(this.pnContents_Paint);
             // 
             // button12
             // 
@@ -295,43 +265,13 @@
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(323, 3);
+            this.button12.Location = new System.Drawing.Point(536, 213);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 75);
             this.button12.TabIndex = 46;
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button_Click);
             this.button12.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
-            // 
-            // button9
-            // 
-            this.button9.BackgroundImage = global::ABShell.Properties.Resources.print;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(242, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 75);
-            this.button9.TabIndex = 45;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button_Click);
-            this.button9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
-            // 
-            // button7
-            // 
-            this.button7.BackgroundImage = global::ABShell.Properties.Resources.microsoftoffice2007excel_8537;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(4, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 75);
-            this.button7.TabIndex = 42;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button_Click);
-            this.button7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
             // 
             // addBut
             // 
@@ -340,43 +280,13 @@
             this.addBut.FlatAppearance.BorderSize = 0;
             this.addBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBut.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addBut.Location = new System.Drawing.Point(404, 14);
+            this.addBut.Location = new System.Drawing.Point(617, 224);
             this.addBut.Name = "addBut";
             this.addBut.Size = new System.Drawing.Size(52, 52);
             this.addBut.TabIndex = 47;
             this.addBut.UseVisualStyleBackColor = true;
             this.addBut.Visible = false;
             this.addBut.Click += new System.EventHandler(this.addBut_Click);
-            // 
-            // button10
-            // 
-            this.button10.BackgroundImage = global::ABShell.Properties.Resources.Chrome;
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.Location = new System.Drawing.Point(166, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 75);
-            this.button10.TabIndex = 44;
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button_Click);
-            this.button10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
-            // 
-            // button8
-            // 
-            this.button8.BackgroundImage = global::ABShell.Properties.Resources.microsoftoffice2007word_5551;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(85, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 75);
-            this.button8.TabIndex = 43;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button_Click);
-            this.button8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
             // 
             // button3
             // 
@@ -407,6 +317,142 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(536, 157);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 50;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // buttonApp4
+            // 
+            this.buttonApp4.BackgroundImage = global::ABShell.Properties.Resources.print;
+            this.buttonApp4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp4.FlatAppearance.BorderSize = 0;
+            this.buttonApp4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp4.id = 5;
+            this.buttonApp4.image = global::ABShell.Properties.Resources.print;
+            this.buttonApp4.isVisible = false;
+            this.buttonApp4.Location = new System.Drawing.Point(154, 3);
+            this.buttonApp4.login = "";
+            this.buttonApp4.Name = "buttonApp4";
+            this.buttonApp4.password = "";
+            this.buttonApp4.path = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+            this.buttonApp4.server = "";
+            this.buttonApp4.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp4.TabIndex = 50;
+            this.buttonApp4.UseVisualStyleBackColor = true;
+            this.buttonApp4.Click += new System.EventHandler(this.buttonApp_Click);
+            this.buttonApp4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
+            // 
+            // buttonApp5
+            // 
+            this.buttonApp5.BackgroundImage = global::ABShell.Properties.Resources.microsoftoffice2007excel_8537;
+            this.buttonApp5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp5.FlatAppearance.BorderSize = 0;
+            this.buttonApp5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp5.id = 4;
+            this.buttonApp5.image = global::ABShell.Properties.Resources.microsoftoffice2007excel_8537;
+            this.buttonApp5.isVisible = false;
+            this.buttonApp5.Location = new System.Drawing.Point(79, 3);
+            this.buttonApp5.login = "";
+            this.buttonApp5.Name = "buttonApp5";
+            this.buttonApp5.password = "";
+            this.buttonApp5.path = "C:\\TeamViewer 10.exe";
+            this.buttonApp5.server = "";
+            this.buttonApp5.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp5.TabIndex = 49;
+            this.buttonApp5.UseVisualStyleBackColor = true;
+            this.buttonApp5.Click += new System.EventHandler(this.buttonApp_Click);
+            this.buttonApp5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
+            // 
+            // buttonApp6
+            // 
+            this.buttonApp6.BackgroundImage = global::ABShell.Properties.Resources.microsoftoffice2007word_5551;
+            this.buttonApp6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp6.FlatAppearance.BorderSize = 0;
+            this.buttonApp6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp6.id = 3;
+            this.buttonApp6.image = global::ABShell.Properties.Resources.microsoftoffice2007word_5551;
+            this.buttonApp6.isVisible = false;
+            this.buttonApp6.Location = new System.Drawing.Point(4, 3);
+            this.buttonApp6.login = "";
+            this.buttonApp6.Name = "buttonApp6";
+            this.buttonApp6.password = "";
+            this.buttonApp6.path = "D:\\office4\\client\\O4Client.exe";
+            this.buttonApp6.server = "";
+            this.buttonApp6.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp6.TabIndex = 48;
+            this.buttonApp6.UseVisualStyleBackColor = true;
+            this.buttonApp6.Click += new System.EventHandler(this.buttonApp_Click);
+            this.buttonApp6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
+            // 
+            // buttonApp3
+            // 
+            this.buttonApp3.BackgroundImage = global::ABShell.Properties.Resources.Chrome;
+            this.buttonApp3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp3.FlatAppearance.BorderSize = 0;
+            this.buttonApp3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp3.id = 2;
+            this.buttonApp3.image = global::ABShell.Properties.Resources.Chrome;
+            this.buttonApp3.isVisible = true;
+            this.buttonApp3.Location = new System.Drawing.Point(155, 5);
+            this.buttonApp3.login = "";
+            this.buttonApp3.Name = "buttonApp3";
+            this.buttonApp3.password = "";
+            this.buttonApp3.path = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+            this.buttonApp3.server = "";
+            this.buttonApp3.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp3.TabIndex = 44;
+            this.buttonApp3.UseVisualStyleBackColor = true;
+            this.buttonApp3.Click += new System.EventHandler(this.buttonApp_Click);
+            this.buttonApp3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
+            // 
+            // buttonApp2
+            // 
+            this.buttonApp2.BackgroundImage = global::ABShell.Properties.Resources.TeamViewer02x128;
+            this.buttonApp2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp2.FlatAppearance.BorderSize = 0;
+            this.buttonApp2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp2.id = 1;
+            this.buttonApp2.image = global::ABShell.Properties.Resources.TeamViewer02x128;
+            this.buttonApp2.isVisible = true;
+            this.buttonApp2.Location = new System.Drawing.Point(80, 5);
+            this.buttonApp2.login = "";
+            this.buttonApp2.Name = "buttonApp2";
+            this.buttonApp2.password = "";
+            this.buttonApp2.path = "C:\\TeamViewer 10.exe";
+            this.buttonApp2.server = "";
+            this.buttonApp2.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp2.TabIndex = 43;
+            this.buttonApp2.UseVisualStyleBackColor = true;
+            this.buttonApp2.Click += new System.EventHandler(this.buttonApp_Click);
+            this.buttonApp2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
+            // 
+            // buttonApp1
+            // 
+            this.buttonApp1.BackgroundImage = global::ABShell.Properties.Resources.aboffice;
+            this.buttonApp1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp1.FlatAppearance.BorderSize = 0;
+            this.buttonApp1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp1.id = 0;
+            this.buttonApp1.image = global::ABShell.Properties.Resources.aboffice;
+            this.buttonApp1.isVisible = true;
+            this.buttonApp1.Location = new System.Drawing.Point(5, 5);
+            this.buttonApp1.login = "";
+            this.buttonApp1.Name = "buttonApp1";
+            this.buttonApp1.password = "";
+            this.buttonApp1.path = "D:\\office4\\client\\O4Client.exe";
+            this.buttonApp1.server = "";
+            this.buttonApp1.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp1.TabIndex = 42;
+            this.buttonApp1.UseVisualStyleBackColor = true;
+            this.buttonApp1.Click += new System.EventHandler(this.buttonApp_Click);
+            this.buttonApp1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
             // 
             // btnUseShell
             // 
@@ -439,9 +485,12 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(832, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.addBut);
             this.Controls.Add(this.pnContents);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -480,12 +529,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel pnHead;
         private System.Windows.Forms.Button addBut;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label8;
@@ -496,6 +539,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private ButtonApp buttonApp3;
+        private ButtonApp buttonApp2;
+        private ButtonApp buttonApp1;
+        private ButtonApp buttonApp4;
+        private ButtonApp buttonApp5;
+        private ButtonApp buttonApp6;
+        private System.Windows.Forms.Button button4;
     }
 }
 

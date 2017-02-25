@@ -11,7 +11,6 @@ namespace ABShell
     public class ProgramSetting
     {
         public int id;
-        public string name;
         public string path;
         public Image image;
         public string login;
@@ -27,6 +26,29 @@ namespace ABShell
         public void revers()
         {
             isVisible = !isVisible;
+        }
+
+        public void setSetting(ButtonApp button)
+        {
+            id = button.id;
+            path = button.path;
+            image = button.image;
+            login = button.login;
+            password = button.password;
+            server = button.server;
+            isVisible = button.isVisible;
+        }
+        public ButtonApp getButton()
+        {
+            ButtonApp button = new ButtonApp();
+            button.id = id;
+            button.path = path;
+            button.password = password;
+            button.image = image;
+            button.login = login;
+            button.server = server;
+            button.isVisible = isVisible;
+            return button;
         }
     }
 }

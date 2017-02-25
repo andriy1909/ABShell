@@ -12,7 +12,7 @@ namespace ABShell
 {
     public partial class SettingBut : Form
     {
-        ProgramSetting setting = new ProgramSetting();
+        ButtonApp button = new ButtonApp();
 
         public SettingBut()
         {
@@ -40,35 +40,35 @@ namespace ABShell
             }
         }
 
-        public void setButton(ProgramSetting setting)
+        public void setButton(ButtonApp button)
         {
-            if (setting.image != null)
-                imgButtom.Image = setting.image;
-            this.setting.id = setting.id;
-            if (setting.login != null)
-                tbLogin.Text = setting.login.ToString();
-            if (setting.password != null)
-                tbPassword.Text = setting.password.ToString();
-            if (setting.server != null)
-                tbServer.Text = setting.server.ToString();
-            if (setting.path != null)
-                tbPath.Text = setting.path.ToString();
+            this.button = button;
+            if (button.image != null)
+                imgButtom.Image = button.image;
+            if (button.login != null)
+                tbLogin.Text = button.login.ToString();
+            if (button.password != null)
+                tbPassword.Text = button.password.ToString();
+            if (button.server != null)
+                tbServer.Text = button.server.ToString();
+            if (button.path != null)
+                tbPath.Text = button.path.ToString();
         }
 
         public void setButton(int id)
         {
-            setting.id = id;
+            button.id = id;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            setting.image = imgButtom.Image;
-            setting.path = tbPath.Text;
-            setting.isVisible = false;
-            setting.login = tbLogin.Text;
-            setting.password = tbPassword.Text;
-            setting.server = tbServer.Text;
-            setting.path = tbPath.Text;
+            button.image = imgButtom.Image;
+            button.path = tbPath.Text;
+            button.isVisible = false;
+            button.login = tbLogin.Text;
+            button.password = tbPassword.Text;
+            button.server = tbServer.Text;
+            button.path = tbPath.Text;
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -92,9 +92,9 @@ namespace ABShell
             }
         }
 
-        public ProgramSetting getButtonSetting()
+        public ButtonApp getButtonSetting()
         {
-            return setting;
+            return button;
         }
     }
 }

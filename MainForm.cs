@@ -216,11 +216,17 @@ namespace ABShell
             if (isSetting)
             {
                 SettingBut form = new SettingBut();
-                form.setButton(programsList.Find(x => x.id == (sender as Button).TabIndex));
+                form.setButton(sender as ButtonApp);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    programsList.RemoveAll(x => x.id == (sender as Button).TabIndex);
-                    programsList.Add(form.getButtonSetting());
+                    ButtonApp tmp = form.getButtonSetting();
+                    (sender as ButtonApp).image = tmp.image;
+                    (sender as ButtonApp).path = tmp.path;
+                    (sender as ButtonApp).isVisible = tmp.isVisible;
+                    (sender as ButtonApp).login = tmp.login;
+                    (sender as ButtonApp).password = tmp.password;
+                    (sender as ButtonApp).server = tmp.server;
+                    (sender as ButtonApp).path = tmp.path;
                     paintButtons(pnHead, false);
                     paintButtons(pnContents, true);
                 }
@@ -264,7 +270,7 @@ namespace ABShell
         
         public void paintButtons(object panel,bool comtents)
         {
-            int i = 0;
+            /*int i = 0;
             foreach (Button item in ((Panel)panel).Controls)
             {
                 ProgramSetting setting = programsList.Find(x => x.id == item.TabIndex);
@@ -274,7 +280,7 @@ namespace ABShell
                     item.Left = i * 75 + 5;
                     i++;
                 }
-            }
+            }*/
         }
 
         public void addButton(Button button)
@@ -300,7 +306,14 @@ namespace ABShell
             form.setButton(button.TabIndex);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                programsList.Add(form.getButtonSetting());
+                ButtonApp tmp = form.getButtonSetting();
+                (sender as ButtonApp).image = tmp.image;
+                (sender as ButtonApp).path = tmp.path;
+                (sender as ButtonApp).isVisible = tmp.isVisible;
+                (sender as ButtonApp).login = tmp.login;
+                (sender as ButtonApp).password = tmp.password;
+                (sender as ButtonApp).server = tmp.server;
+                (sender as ButtonApp).path = tmp.path;
                 paintButtons(pnContents, true);
                 button.Parent = pnContents;
             }
@@ -379,8 +392,118 @@ namespace ABShell
 
         private void button3_Click(object sender, EventArgs e)
         {
-            paintButtons(pnHead, false);
-            paintButtons(pnContents, true);
+            pnHead.Controls.Clear();
+            pnContents.Controls.Clear();
+            int i = 0, j = 0;
+            foreach (ProgramSetting item in programsList)
+            {
+                if(item.isVisible)
+                {
+                    ButtonApp tmp = new ButtonApp();
+                    tmp = item.getButton();
+                    tmp.Top = 5;
+                    tmp.Left = 5 + i * 75;
+                    pnHead.Controls.Add(tmp);
+                    i++;
+                }
+                else
+                {
+                    ButtonApp tmp = new ButtonApp();
+                    tmp = item.getButton();
+                    tmp.Top = 5;
+                    tmp.Left = 5 + j * 75;
+                    pnContents.Controls.Add(tmp);
+                    j++;
+                }
+            }
+        }
+
+        public void update()
+        {
+            pnHead.Controls.Clear();
+            pnContents.Controls.Clear();
+            int i = 0, j = 0;
+            foreach (ProgramSetting item in programsList)
+            {
+                ButtonApp tmp = new ButtonApp();
+                tmp = item.getButton();
+                tmp.Click += buttonApp_Click;
+                tmp.MouseDown += buttonApp4_MouseDown;
+                tmp.Top = 5;
+                if (item.isVisible)
+                {
+                    tmp.Left = 5 + i * 75;
+                    pnHead.Controls.Add(tmp);
+                    i++;
+                }
+                else
+                {
+                    tmp.Left = 5 + j * 75;
+                    pnContents.Controls.Add(tmp);
+                    j++;
+                }
+            }
+        }
+
+        private void buttonApp_Click(object sender, EventArgs e)
+        {
+            if (isSetting)
+            {
+                SettingBut form = new SettingBut();
+                form.setButton(sender as ButtonApp);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    ButtonApp tmp = form.getButtonSetting();
+                    (sender as ButtonApp).image = tmp.image;
+                    (sender as ButtonApp).path = tmp.path;
+                    (sender as ButtonApp).isVisible = tmp.isVisible;
+                    (sender as ButtonApp).login = tmp.login;
+                    (sender as ButtonApp).password = tmp.password;
+                    (sender as ButtonApp).server = tmp.server;
+                    (sender as ButtonApp).path = tmp.path;
+                    paintButtons(pnHead, false);
+                    paintButtons(pnContents, true);
+                }
+            }
+            else
+            {
+                Process.Start((sender as ButtonApp).path);
+            }
+        }
+
+        private void pnContents_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            programsList.Clear();
+            foreach (ButtonApp item in pnContents.Controls)
+            {
+                ProgramSetting tmp = new ProgramSetting();
+                tmp.setSetting(item);
+                programsList.Add(tmp);
+            }
+            foreach (ButtonApp item in pnHead.Controls)
+            {
+                ProgramSetting tmp = new ProgramSetting();
+                tmp.setSetting(item);
+                programsList.Add(tmp);
+            }
+        }
+
+        private void buttonApp4_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ProgramSetting tmp = programsList.Find(x => x.id == (sender as ButtonApp).id);
+                if (tmp != null)
+                {
+                    tmp.revers();
+                }
+            }
+            Update();
         }
     }
 }
