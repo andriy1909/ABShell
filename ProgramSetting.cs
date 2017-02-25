@@ -23,6 +23,11 @@ namespace ABShell
         {
 
         }
+
+        public void revers()
+        {
+            isVisible = !isVisible;
+        }
     }
 }
 

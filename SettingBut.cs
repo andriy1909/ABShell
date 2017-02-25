@@ -45,10 +45,14 @@ namespace ABShell
             if (setting.image != null)
                 imgButtom.Image = setting.image;
             this.setting.id = setting.id;
-            tbLogin.Text = setting.login.ToString();
-            tbPassword.Text = setting.password.ToString();
-            tbServer.Text = setting.server.ToString();
-            tbPath.Text = setting.path.ToString();
+            if (setting.login != null)
+                tbLogin.Text = setting.login.ToString();
+            if (setting.password != null)
+                tbPassword.Text = setting.password.ToString();
+            if (setting.server != null)
+                tbServer.Text = setting.server.ToString();
+            if (setting.path != null)
+                tbPath.Text = setting.path.ToString();
         }
 
         public void setButton(int id)

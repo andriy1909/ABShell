@@ -11,7 +11,7 @@ namespace ABShell
 {
     public partial class ButtonRedLine : UserControl
     {
-        public bool LineVisible { get; set; }
+        private bool LineVisible { get; set; }
         public ButtonRedLine()
         {
             InitializeComponent();
@@ -25,8 +25,15 @@ namespace ABShell
 
         private void ButtonRedLine_Click(object sender, EventArgs e)
         {
-            imgLine.Visible = !imgLine.Visible;
-            LineVisible = imgLine.Visible;
+            //imgLine.Visible = !imgLine.Visible;
+        }
+        public void setLinevisible(bool value)
+        {
+            imgLine.Visible = value;
+        }
+        public bool getLinevisible()
+        {
+            return imgLine.Visible;
         }
     }
 }

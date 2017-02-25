@@ -23,7 +23,8 @@ namespace ABShell
         private MainData mainData;
         private List<UserSetting> usersList;
         private List<ProgramSetting> programsList;
-        Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        int min = 130;
+        int max = 335;
 
         public MainForm()
         {
@@ -34,51 +35,34 @@ namespace ABShell
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.UseWinShell)
+            if (getShell()== "explorer.exe")
             {
-                btUseShell.LineVisible = false;
-                setShell("explorer.exe");
-                label8.Text = "Разрешить Windows Shell";
+                btnUseShell.setLinevisible(false);
+                label8.Text = "Заменить Windows Shell";
             }
             else
             {
-                btUseShell.LineVisible = true;
-                setShell(Application.ExecutablePath);
-                label8.Text = "Заменить Windows Shell";
+                btnUseShell.setLinevisible(true);
+                label8.Text = "Разрешить Windows Shell";
+            }
+            if (getDispVisible()=="-1")
+            {
+                btnDisp.setLinevisible(false);
+                label6.Text = "Запретить диспечер задач";
+            }
+            else
+            {
+                btnDisp.setLinevisible(true);
+                label6.Text = "Разрешить диспечер задач";
             }
 
-
             //if (File.Exists(Application.StartupPath + "\\ABShellSetting.conf"))
-            //if (File.Exists(@"D:\ABShellSetting.conf"))
-            //    loadSetting();
-            /*
-            UserSetting locUser = usersList.Find(x => x.name == Environment.UserName.ToString());
-            if (locUser == null || !locUser.changeShell)
-            {
-                //if (MessageBox.Show("Start explorer", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                //{
-                    var runningProcs = from proc in Process.GetProcesses(".") orderby proc.Id select proc;
-                if (runningProcs.Count(p => p.ProcessName.Contains("explorer")) == 0)
-                {
-                    //var proc = new Process();
-                    //proc.StartInfo.FileName = "C:\\Windows\\explorer.exe";
-                    //proc.StartInfo.UseShellExecute = true;
-                    //proc.Start();
-                    setShell("explorer.exe");
-                    var p = new ProcessStartInfo("cmd", "/r shutdown -f -r") { CreateNoWindow = true };
-                    Process.Start(p);
-                    //Process.Start(@"C:\Windows\explorer.exe");
-                    Application.Exit();
-
-                }
-                //}
-            }*/
-
+                loadSetting();
+           
             SelectQuery query = new SelectQuery("Win32_UserAccount");
             ManagementObjectSearcher users = new ManagementObjectSearcher(query);
             foreach (ManagementObject user in users.Get())
             {
-                //if (user.)
                 UserSetting tmpUser = usersList.Find(x => x.name == user["Name"].ToString());
                 if (tmpUser == null)
                 {
@@ -90,7 +74,7 @@ namespace ABShell
                     dataGridView1.Rows.Add(new object[] { tmpUser.name });
                 }
             }
-            Height = 135;
+            Height = min;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -99,13 +83,23 @@ namespace ABShell
 
         public void saveSetting()
         {
-            //StreamWriter swtr = new StreamWriter(Application.StartupPath + "\\ABShellSetting.conf", false);
-            StreamWriter swtr = new StreamWriter(@"D:\ABShellSetting.conf", false);
+            /* StreamWriter swtr = new StreamWriter(Application.StartupPath + "\\ABShellSetting.conf", false);
+             try
+             {
+                 mainData = new MainData() { usersList = usersList, programsList = programsList };
+                 XmlSerializer xmlser = new XmlSerializer(typeof(MainData));
+                 xmlser.Serialize(swtr, mainData);
+             }
+             finally
+             {
+                 swtr.Close();
+             }*/
+            StreamWriter swtr = new StreamWriter(Application.StartupPath + "\\ABShellSetting.conf", false);
             try
             {
-                mainData = new MainData() { usersList = usersList, programsList = programsList };
-                XmlSerializer xmlser = new XmlSerializer(typeof(MainData));
-                xmlser.Serialize(swtr, mainData);
+               // mainData = new MainData() { usersList = usersList, programsList = programsList };
+                XmlSerializer xmlser = new XmlSerializer(typeof(List<ProgramSetting>));
+                xmlser.Serialize(swtr, programsList);
             }
             finally
             {
@@ -114,14 +108,37 @@ namespace ABShell
         }
         public void loadSetting()
         {
-            //StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
-            StreamReader srdr = new StreamReader(@"D:\ABShellSetting.conf");
+            /* StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
             try
             {
                 XmlSerializer xmlser = new XmlSerializer(typeof(MainData));
                 mainData = (MainData)xmlser.Deserialize(srdr);
                 usersList = mainData.usersList;
                 programsList = mainData.programsList;
+            }
+            finally
+            {
+                srdr.Close();
+            }*/
+            programsList.Clear();
+            programsList.Add(new ProgramSetting() { id = 40, isVisible = true });
+            programsList.Add(new ProgramSetting() { id = 41, isVisible = false });
+            programsList.Add(new ProgramSetting() { id = 42, isVisible = true });
+            programsList.Add(new ProgramSetting() { id = 43, isVisible = false });
+            programsList.Add(new ProgramSetting() { id = 44, isVisible = false });
+            programsList.Add(new ProgramSetting() { id = 45, isVisible = true });
+            programsList.Add(new ProgramSetting() { id = 46, isVisible = false });
+            programsList.Add(new ProgramSetting() { id = 47, isVisible = true });
+        }
+        public void loadSetting2()
+        {
+             StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
+            try
+            {
+                XmlSerializer xmlser = new XmlSerializer(typeof(List<ProgramSetting>));
+                programsList = (List<ProgramSetting>)xmlser.Deserialize(srdr);
+                //usersList = mainData.usersList;
+                //programsList = mainData.programsList;
             }
             finally
             {
@@ -145,22 +162,6 @@ namespace ABShell
                 }
             }
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            setShell("ABShell.exe");
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Process.Start(@"C:\Windows\regedit.exe");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            setShell("explorer.exe");
-        }
-
         public void setShell(string name)
         {
             RegistryKey hklm = Registry.CurrentUser;
@@ -203,35 +204,11 @@ namespace ABShell
         private void btnSetting_Click(object sender, EventArgs e)
         {
             isSetting = !isSetting;
-            foreach (var item in pnButtons.Controls)
-            {
-                if (item.GetType() == new ButtonNew().GetType())
-                {
-                    ((ButtonNew)item).setVisible(isSetting);
-                    ((ButtonNew)item).Visible = isSetting || ((ButtonNew)item).getIsVisible();
-                }
-            }
             addBut.Visible = isSetting;
             if (isSetting)
-                Height = 310;
+                Height = max;
             else
-                Height = 135;
-        }
-
-        private void buttonNew2_Load(object sender, EventArgs e)
-        {
-            Process.Start(@"C:\ABOFFICE\client\O4Client.exe");
-        }
-
-        private void buttonNew6_Load(object sender, EventArgs e)
-        {
-            Process.Start(@"C:\Program Files\Microsoft Office\root\Office16\excel.exe");
-        }
-
-        private void buttonNew1_Load(object sender, EventArgs e)
-        {
-            Process.Start(@"C:\Program Files\Microsoft Office\root\Office16\winword.exe");
-
+                Height = min;
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -242,17 +219,23 @@ namespace ABShell
                 form.setButton(programsList.Find(x => x.id == (sender as Button).TabIndex));
                 if (form.ShowDialog() == DialogResult.OK)
                 {
+                    programsList.RemoveAll(x => x.id == (sender as Button).TabIndex);
                     programsList.Add(form.getButtonSetting());
-                    paintButtons((sender as Button).Parent, true);
+                    paintButtons(pnHead, false);
+                    paintButtons(pnContents, true);
                 }
             }
+            else
+            {
+                Process.Start(programsList.Find(x => x.id == (sender as Button).TabIndex).path);
+            }
+            
         }
 
         private void btUseShell_Click(object sender, EventArgs e)
         {
-            btUseShell.LineVisible = !btUseShell.LineVisible;
-            Properties.Settings.Default.UseWinShell = !btUseShell.LineVisible;
-            if (!btnUseShell.LineVisible)
+            btnUseShell.setLinevisible(!btnUseShell.getLinevisible());
+            if (btnUseShell.getLinevisible())
             {
                 setShell(Application.ExecutablePath);
                 label8.Text = "Разрешить Windows Shell";
@@ -266,27 +249,32 @@ namespace ABShell
 
         private void btDisp_Click(object sender, EventArgs e)
         {
-            btnDisp.LineVisible = !btnDisp.LineVisible;
-            if (!btnDisp.LineVisible)
+            btnDisp.setLinevisible(!btnDisp.getLinevisible());
+            if (!btnDisp.getLinevisible())
             {
-                //setShell(Application.ExecutablePath);
-                label6.Text = "Разрешить диспечер задач";
+                label6.Text = "Запретить диспечер задач";
+                setDispVisible(true);
             }
             else
             {
-                //setShell("explorer.exe");
-                label6.Text = "Запретить диспечер задач";
+                label6.Text = "Разрешить диспечер задач";
+                setDispVisible(false);
             }
         }
-
-        private void button12_Click(object sender, EventArgs e)
+        
+        public void paintButtons(object panel,bool comtents)
         {
-            Process.Start("explorer");
-        }
-
-        public void paintButtons(object panel, bool multiline)
-        {
-
+            int i = 0;
+            foreach (Button item in ((Panel)panel).Controls)
+            {
+                ProgramSetting setting = programsList.Find(x => x.id == item.TabIndex);
+                if (setting != null && setting.isVisible == !comtents)
+                {
+                    item.BackgroundImage = setting.image;
+                    item.Left = i * 75 + 5;
+                    i++;
+                }
+            }
         }
 
         public void addButton(Button button)
@@ -318,6 +306,81 @@ namespace ABShell
             }
             else
                 Controls.Remove(button);
+        }
+
+        //отключить Диспетчер задач
+        public void setDispVisible(bool value)
+        {
+            RegistryKey regkey;
+            string keyValueInt = "-1";
+            if (!value)
+                keyValueInt = "1";
+            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+
+            try
+            {
+                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
+                regkey.SetValue("DisableTaskMgr", keyValueInt);
+                regkey.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public string getDispVisible()
+        {
+            RegistryKey regkey;
+            string keyValueInt = null;// = "1";
+            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+
+            try
+            {
+                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
+                keyValueInt = (string)regkey.GetValue("DisableTaskMgr");
+                regkey.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return keyValueInt;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            paintButtons(pnHead,false);
+        }
+
+        private void button6_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if(e.Button==MouseButtons.Right)
+            //{
+                programsList.Find(x => x.id == (sender as Button).TabIndex).revers();
+                paintButtons(pnHead, false);
+                paintButtons(pnContents, true);
+            //}
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            saveSetting();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadSetting2();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            paintButtons(pnHead, false);
+            paintButtons(pnContents, true);
         }
     }
 }
