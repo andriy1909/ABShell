@@ -36,22 +36,12 @@ namespace ABShell
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (getShell()== "explorer.exe")
-            {
-                btnUseShell.setLinevisible(false);
-                label8.Text = "Заменить Windows Shell";
-            }
-            else
+            if (getShell()!= "explorer.exe")
             {
                 btnUseShell.setLinevisible(true);
                 label8.Text = "Разрешить Windows Shell";
             }
-            if (getDispVisible()=="-1")
-            {
-                btnDisp.setLinevisible(false);
-                label6.Text = "Запретить диспечер задач";
-            }
-            else
+            if (getDispVisible()!="-1")
             {
                 btnDisp.setLinevisible(true);
                 label6.Text = "Разрешить диспечер задач";

@@ -204,7 +204,6 @@
             this.pnHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pnHead.Controls.Add(this.buttonApp3);
             this.pnHead.Controls.Add(this.buttonApp2);
-            this.pnHead.Controls.Add(this.buttonApp1);
             this.pnHead.Location = new System.Drawing.Point(0, 0);
             this.pnHead.Name = "pnHead";
             this.pnHead.Size = new System.Drawing.Size(515, 85);
@@ -256,7 +255,7 @@
             this.pnContents.Controls.Add(this.buttonApp6);
             this.pnContents.Location = new System.Drawing.Point(0, 91);
             this.pnContents.Name = "pnContents";
-            this.pnContents.Size = new System.Drawing.Size(514, 202);
+            this.pnContents.Size = new System.Drawing.Size(515, 202);
             this.pnContents.TabIndex = 44;
             // 
             // button12
@@ -271,6 +270,7 @@
             this.button12.Size = new System.Drawing.Size(75, 75);
             this.button12.TabIndex = 46;
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Visible = false;
             this.button12.Click += new System.EventHandler(this.button_Click);
             this.button12.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
             // 
@@ -465,7 +465,7 @@
             this.buttonApp1.id = 0;
             this.buttonApp1.image = global::ABShell.Properties.Resources.aboffice;
             this.buttonApp1.isVisible = true;
-            this.buttonApp1.Location = new System.Drawing.Point(5, 5);
+            this.buttonApp1.Location = new System.Drawing.Point(691, 108);
             this.buttonApp1.login = "";
             this.buttonApp1.Name = "buttonApp1";
             this.buttonApp1.password = "";
@@ -510,6 +510,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonApp1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button1);
