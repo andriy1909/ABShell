@@ -52,13 +52,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.buttonApp1 = new ABShell.ButtonApp();
             this.buttonApp7 = new ABShell.ButtonApp();
             this.buttonApp4 = new ABShell.ButtonApp();
             this.buttonApp5 = new ABShell.ButtonApp();
             this.buttonApp6 = new ABShell.ButtonApp();
             this.buttonApp3 = new ABShell.ButtonApp();
             this.buttonApp2 = new ABShell.ButtonApp();
-            this.buttonApp1 = new ABShell.ButtonApp();
             this.btnUseShell = new ABShell.ButtonRedLine();
             this.btnDisp = new ABShell.ButtonRedLine();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,7 +93,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
             this.dataGridView1.Enabled = false;
-            this.dataGridView1.Location = new System.Drawing.Point(520, 107);
+            this.dataGridView1.Location = new System.Drawing.Point(637, 200);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -109,7 +109,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(242, 181);
+            this.dataGridView1.Size = new System.Drawing.Size(242, 253);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.Visible = false;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
@@ -129,7 +129,7 @@
             this.pnButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnButtons.Location = new System.Drawing.Point(0, 0);
             this.pnButtons.Name = "pnButtons";
-            this.pnButtons.Size = new System.Drawing.Size(832, 85);
+            this.pnButtons.Size = new System.Drawing.Size(949, 85);
             this.pnButtons.TabIndex = 11;
             // 
             // pnPower
@@ -139,7 +139,7 @@
             this.pnPower.Controls.Add(this.btnRestart);
             this.pnPower.Controls.Add(this.btnLogout);
             this.pnPower.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnPower.Location = new System.Drawing.Point(514, 0);
+            this.pnPower.Location = new System.Drawing.Point(631, 0);
             this.pnPower.Name = "pnPower";
             this.pnPower.Size = new System.Drawing.Size(318, 85);
             this.pnPower.TabIndex = 31;
@@ -202,11 +202,12 @@
             // pnHead
             // 
             this.pnHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnHead.Controls.Add(this.buttonApp3);
+            this.pnHead.Controls.Add(this.buttonApp4);
             this.pnHead.Controls.Add(this.buttonApp2);
+            this.pnHead.Controls.Add(this.button12);
             this.pnHead.Location = new System.Drawing.Point(0, 0);
             this.pnHead.Name = "pnHead";
-            this.pnHead.Size = new System.Drawing.Size(515, 85);
+            this.pnHead.Size = new System.Drawing.Size(630, 85);
             this.pnHead.TabIndex = 28;
             // 
             // label1
@@ -214,7 +215,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(591, 89);
+            this.label1.Location = new System.Drawing.Point(727, 160);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 16);
             this.label1.TabIndex = 12;
@@ -224,7 +225,7 @@
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.Location = new System.Drawing.Point(766, 146);
+            this.label6.Location = new System.Drawing.Point(883, 307);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 44);
             this.label6.TabIndex = 40;
@@ -235,7 +236,7 @@
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.Location = new System.Drawing.Point(766, 236);
+            this.label8.Location = new System.Drawing.Point(883, 397);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 44);
             this.label8.TabIndex = 43;
@@ -250,12 +251,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnContents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnContents.Controls.Add(this.buttonApp7);
-            this.pnContents.Controls.Add(this.buttonApp4);
-            this.pnContents.Controls.Add(this.buttonApp5);
+            this.pnContents.Controls.Add(this.buttonApp3);
             this.pnContents.Controls.Add(this.buttonApp6);
-            this.pnContents.Location = new System.Drawing.Point(0, 91);
+            this.pnContents.Location = new System.Drawing.Point(0, 213);
             this.pnContents.Name = "pnContents";
-            this.pnContents.Size = new System.Drawing.Size(515, 202);
+            this.pnContents.Size = new System.Drawing.Size(632, 245);
             this.pnContents.TabIndex = 44;
             // 
             // button12
@@ -265,12 +265,11 @@
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(536, 213);
+            this.button12.Location = new System.Drawing.Point(396, 10);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 75);
             this.button12.TabIndex = 46;
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Visible = false;
             this.button12.Click += new System.EventHandler(this.button_Click);
             this.button12.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button6_MouseClick);
             // 
@@ -286,7 +285,6 @@
             this.addBut.Size = new System.Drawing.Size(52, 52);
             this.addBut.TabIndex = 47;
             this.addBut.UseVisualStyleBackColor = true;
-            this.addBut.Visible = false;
             this.addBut.Click += new System.EventHandler(this.addBut_Click);
             // 
             // button3
@@ -311,7 +309,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(617, 167);
+            this.button1.Location = new System.Drawing.Point(613, 351);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 47;
@@ -321,13 +319,34 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(536, 157);
+            this.button4.Location = new System.Drawing.Point(532, 341);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 50;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // buttonApp1
+            // 
+            this.buttonApp1.BackgroundImage = global::ABShell.Properties.Resources.aboffice;
+            this.buttonApp1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp1.FlatAppearance.BorderSize = 0;
+            this.buttonApp1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp1.id = 0;
+            this.buttonApp1.image = global::ABShell.Properties.Resources.aboffice;
+            this.buttonApp1.isVisible = true;
+            this.buttonApp1.Location = new System.Drawing.Point(12, 113);
+            this.buttonApp1.login = "";
+            this.buttonApp1.Name = "buttonApp1";
+            this.buttonApp1.password = "";
+            this.buttonApp1.path = "D:\\office4\\client\\O4Client.exe";
+            this.buttonApp1.server = "";
+            this.buttonApp1.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp1.TabIndex = 42;
+            this.buttonApp1.UseVisualStyleBackColor = true;
+            this.buttonApp1.Click += new System.EventHandler(this.buttonApp_Click);
+            this.buttonApp1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
             // 
             // buttonApp7
             // 
@@ -360,7 +379,7 @@
             this.buttonApp4.id = 5;
             this.buttonApp4.image = global::ABShell.Properties.Resources.print;
             this.buttonApp4.isVisible = false;
-            this.buttonApp4.Location = new System.Drawing.Point(154, 3);
+            this.buttonApp4.Location = new System.Drawing.Point(558, 7);
             this.buttonApp4.login = "";
             this.buttonApp4.Name = "buttonApp4";
             this.buttonApp4.password = "";
@@ -381,7 +400,7 @@
             this.buttonApp5.id = 4;
             this.buttonApp5.image = global::ABShell.Properties.Resources.microsoftoffice2007excel_8537;
             this.buttonApp5.isVisible = false;
-            this.buttonApp5.Location = new System.Drawing.Point(79, 3);
+            this.buttonApp5.Location = new System.Drawing.Point(100, 113);
             this.buttonApp5.login = "";
             this.buttonApp5.Name = "buttonApp5";
             this.buttonApp5.password = "";
@@ -423,7 +442,7 @@
             this.buttonApp3.id = 2;
             this.buttonApp3.image = global::ABShell.Properties.Resources.Chrome;
             this.buttonApp3.isVisible = true;
-            this.buttonApp3.Location = new System.Drawing.Point(155, 5);
+            this.buttonApp3.Location = new System.Drawing.Point(160, 12);
             this.buttonApp3.login = "";
             this.buttonApp3.Name = "buttonApp3";
             this.buttonApp3.password = "";
@@ -444,7 +463,7 @@
             this.buttonApp2.id = 1;
             this.buttonApp2.image = global::ABShell.Properties.Resources.TeamViewer02x128;
             this.buttonApp2.isVisible = true;
-            this.buttonApp2.Location = new System.Drawing.Point(80, 5);
+            this.buttonApp2.Location = new System.Drawing.Point(477, 12);
             this.buttonApp2.login = "";
             this.buttonApp2.Name = "buttonApp2";
             this.buttonApp2.password = "";
@@ -456,34 +475,13 @@
             this.buttonApp2.Click += new System.EventHandler(this.buttonApp_Click);
             this.buttonApp2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
             // 
-            // buttonApp1
-            // 
-            this.buttonApp1.BackgroundImage = global::ABShell.Properties.Resources.aboffice;
-            this.buttonApp1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonApp1.FlatAppearance.BorderSize = 0;
-            this.buttonApp1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonApp1.id = 0;
-            this.buttonApp1.image = global::ABShell.Properties.Resources.aboffice;
-            this.buttonApp1.isVisible = true;
-            this.buttonApp1.Location = new System.Drawing.Point(691, 108);
-            this.buttonApp1.login = "";
-            this.buttonApp1.Name = "buttonApp1";
-            this.buttonApp1.password = "";
-            this.buttonApp1.path = "D:\\office4\\client\\O4Client.exe";
-            this.buttonApp1.server = "";
-            this.buttonApp1.Size = new System.Drawing.Size(75, 75);
-            this.buttonApp1.TabIndex = 42;
-            this.buttonApp1.UseVisualStyleBackColor = true;
-            this.buttonApp1.Click += new System.EventHandler(this.buttonApp_Click);
-            this.buttonApp1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp4_MouseDown);
-            // 
             // btnUseShell
             // 
             this.btnUseShell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUseShell.BackColor = System.Drawing.Color.Transparent;
             this.btnUseShell.BackgroundImage = global::ABShell.Properties.Resources.desktop;
             this.btnUseShell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUseShell.Location = new System.Drawing.Point(772, 190);
+            this.btnUseShell.Location = new System.Drawing.Point(889, 351);
             this.btnUseShell.Name = "btnUseShell";
             this.btnUseShell.Size = new System.Drawing.Size(60, 51);
             this.btnUseShell.TabIndex = 45;
@@ -495,7 +493,7 @@
             this.btnDisp.BackColor = System.Drawing.Color.Transparent;
             this.btnDisp.BackgroundImage = global::ABShell.Properties.Resources.taskmgr_icon;
             this.btnDisp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDisp.Location = new System.Drawing.Point(772, 101);
+            this.btnDisp.Location = new System.Drawing.Point(889, 262);
             this.btnDisp.Name = "btnDisp";
             this.btnDisp.Size = new System.Drawing.Size(60, 51);
             this.btnDisp.TabIndex = 46;
@@ -506,13 +504,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(832, 294);
+            this.ClientSize = new System.Drawing.Size(949, 459);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonApp1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.buttonApp1);
+            this.Controls.Add(this.buttonApp5);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button12);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.addBut);
             this.Controls.Add(this.pnContents);
