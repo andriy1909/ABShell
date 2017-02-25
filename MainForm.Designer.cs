@@ -52,6 +52,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.buttonApp7 = new ABShell.ButtonApp();
             this.buttonApp4 = new ABShell.ButtonApp();
             this.buttonApp5 = new ABShell.ButtonApp();
             this.buttonApp6 = new ABShell.ButtonApp();
@@ -249,6 +250,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnContents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnContents.Controls.Add(this.buttonApp7);
             this.pnContents.Controls.Add(this.buttonApp4);
             this.pnContents.Controls.Add(this.buttonApp5);
             this.pnContents.Controls.Add(this.buttonApp6);
@@ -256,7 +258,6 @@
             this.pnContents.Name = "pnContents";
             this.pnContents.Size = new System.Drawing.Size(514, 202);
             this.pnContents.TabIndex = 44;
-            this.pnContents.Paint += new System.Windows.Forms.PaintEventHandler(this.pnContents_Paint);
             // 
             // button12
             // 
@@ -327,6 +328,28 @@
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // buttonApp7
+            // 
+            this.buttonApp7.BackgroundImage = global::ABShell.Properties.Resources.microsoftoffice2007excel_8537;
+            this.buttonApp7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp7.FlatAppearance.BorderSize = 0;
+            this.buttonApp7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp7.id = 4;
+            this.buttonApp7.image = global::ABShell.Properties.Resources.microsoftoffice2007excel_8537;
+            this.buttonApp7.isVisible = false;
+            this.buttonApp7.Location = new System.Drawing.Point(395, 56);
+            this.buttonApp7.login = "";
+            this.buttonApp7.Name = "buttonApp7";
+            this.buttonApp7.password = "";
+            this.buttonApp7.path = "C:\\TeamViewer 10.exe";
+            this.buttonApp7.server = "";
+            this.buttonApp7.Size = new System.Drawing.Size(75, 75);
+            this.buttonApp7.TabIndex = 51;
+            this.buttonApp7.UseVisualStyleBackColor = true;
+            this.buttonApp7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonApp_MouseDown);
+            this.buttonApp7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.buttonApp_MouseMove);
+            this.buttonApp7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonApp_MouseUp);
             // 
             // buttonApp4
             // 
@@ -546,6 +569,7 @@
         private ButtonApp buttonApp5;
         private ButtonApp buttonApp6;
         private System.Windows.Forms.Button button4;
+        private ButtonApp buttonApp7;
     }
 }
 

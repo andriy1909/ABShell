@@ -392,30 +392,7 @@ namespace ABShell
 
         private void button3_Click(object sender, EventArgs e)
         {
-            pnHead.Controls.Clear();
-            pnContents.Controls.Clear();
-            int i = 0, j = 0;
-            foreach (ProgramSetting item in programsList)
-            {
-                if(item.isVisible)
-                {
-                    ButtonApp tmp = new ButtonApp();
-                    tmp = item.getButton();
-                    tmp.Top = 5;
-                    tmp.Left = 5 + i * 75;
-                    pnHead.Controls.Add(tmp);
-                    i++;
-                }
-                else
-                {
-                    ButtonApp tmp = new ButtonApp();
-                    tmp = item.getButton();
-                    tmp.Top = 5;
-                    tmp.Left = 5 + j * 75;
-                    pnContents.Controls.Add(tmp);
-                    j++;
-                }
-            }
+            update();
         }
 
         public void update()
@@ -428,7 +405,9 @@ namespace ABShell
                 ButtonApp tmp = new ButtonApp();
                 tmp = item.getButton();
                 tmp.Click += buttonApp_Click;
-                tmp.MouseDown += buttonApp4_MouseDown;
+                tmp.MouseDown += buttonApp_MouseDown;
+                tmp.MouseMove += buttonApp_MouseMove;
+                tmp.MouseUp += buttonApp_MouseUp;
                 tmp.Top = 5;
                 if (item.isVisible)
                 {
@@ -504,6 +483,56 @@ namespace ABShell
                 }
             }
             Update();
+        }
+        bool b = false;
+        int w, h;
+        Control ob;
+        private void buttonApp_MouseDown(object sender, MouseEventArgs e)
+        {
+            ButtonApp button = sender as ButtonApp;
+            b = true;
+            ob = button.Parent;
+            w = button.Left;
+            h = button.Top;
+            button.Parent = this;
+            button.BringToFront();
+            button.Left = MousePosition.X - Left - 55;
+            button.Top = MousePosition.Y - Top - 55;
+        }
+
+        private void buttonApp_MouseUp(object sender, MouseEventArgs e)
+        {
+            ButtonApp button = sender as ButtonApp;
+            b = false;
+            ProgramSetting tmp = programsList.Find(x => x.id == button.id);
+            if (button.Left + 50 < pnHead.Width && button.Top + 50 < pnHead.Height)
+            {
+                tmp.isVisible = true;
+                Controls.Remove(button);
+            }
+            else
+                if (button.Left + 50 < pnContents.Width && button.Top + 50 < pnContents.Height)
+            {
+                tmp.isVisible = false;
+                Controls.Remove(button);
+            }
+            else
+            {
+                button.Parent = ob;
+                button.Left = w;
+                button.Top = h;
+            }
+            update();
+        }
+
+        private void buttonApp_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (b)
+            {
+                ButtonApp button = sender as ButtonApp;
+                button.Left = MousePosition.X - Left-55;
+                button.Top = MousePosition.Y - Top-55;
+            }
         }
     }
 }
