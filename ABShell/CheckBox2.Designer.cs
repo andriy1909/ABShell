@@ -46,7 +46,7 @@
             this.pbOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbOn.TabIndex = 0;
             this.pbOn.TabStop = false;
-            this.pbOn.Click += new System.EventHandler(this.CheckBox2_Click);
+            this.pbOn.Click += new System.EventHandler(this.pbOff_Click);
             // 
             // pbOff
             // 
@@ -59,7 +59,7 @@
             this.pbOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbOff.TabIndex = 1;
             this.pbOff.TabStop = false;
-            this.pbOff.Click += new System.EventHandler(this.CheckBox2_Click);
+            this.pbOff.Click += new System.EventHandler(this.pbOff_Click);
             // 
             // lbText
             // 
@@ -69,7 +69,7 @@
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(103, 23);
             this.lbText.TabIndex = 2;
-            this.lbText.Click += new System.EventHandler(this.CheckBox2_Click);
+            this.lbText.Click += new System.EventHandler(this.pbOff_Click);
             // 
             // CheckBox2
             // 

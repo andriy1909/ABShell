@@ -13,6 +13,7 @@ namespace ABShell
     {
         string text;
         bool isChecked;
+        bool tmp = true;
 
         public string SetText
         {
@@ -48,7 +49,15 @@ namespace ABShell
 
         private void CheckBox2_Click(object sender, EventArgs e)
         {
+            if (tmp)
             Checked = !Checked;
+        }
+
+        private void pbOff_Click(object sender, EventArgs e)
+        {
+            tmp = true;
+            OnClick(e);
+            tmp = false;
         }
     }
 }

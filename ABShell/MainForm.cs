@@ -24,7 +24,7 @@ namespace ABShell
         private bool isSetting = false;
         private List<ProgramSetting> programsList;
         int min = 320;
-        int max = 530;
+        int max = 390;
 
         public MainForm()
         {
@@ -36,15 +36,17 @@ namespace ABShell
         {
             Properties.Settings.Default.Reload();
             Width = Properties.Settings.Default.Width;
-            cbUseShell.Checked = getShell() == "explorer.exe" || getShell().ToLower() == "explorer";
-            cbUseDisp.Checked = getDispVisible() == "-1";
+            cbUseShell.Checked = !(getShell() == "explorer.exe" || getShell().ToLower() == "explorer");
+            cbUseDisp.Checked = getDispVisible() == "1";
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
             MaximumSize = new Size(2000, min);
             MinimumSize = new Size(505, min);
             buttonApp1.path = Application.StartupPath + "\\TeamViewer.exe";
 
             if (File.Exists(Application.StartupPath + "\\ABShellSetting.bat"))
-            loadSetting();
+                loadSetting();
+            else
+                programsList.Add(new ProgramSetting() { id = 0, image= })
             Height = min;
         }
         
@@ -226,13 +228,14 @@ namespace ABShell
             add.Name = "addBut";
             add.Width = 51;
             add.Height = 51;
-            add.Top = 7;
+            add.Top = 20;
             add.Left = i * 75 + 7;
             add.Image = btnCopy.Image;
             add.FlatStyle = FlatStyle.Flat;
             add.FlatAppearance.BorderSize = 0;
             add.BackgroundImageLayout = ImageLayout.Stretch;
             add.TabIndex = 1;
+            add.Click += addBut_Click;
             pnContents.Controls.Add(add);
         }
 
@@ -279,60 +282,7 @@ namespace ABShell
                 programsList.Add(tmp);
             }
         }
-
-        private void buttonApp4_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                ProgramSetting tmp = programsList.Find(x => x.id == (sender as ButtonApp).id);
-                if (tmp != null)
-                {
-                    tmp.revers();
-                }
-            }
-            Update();
-        }
-        bool b = false;
-        int w, h;
-        Control ob;
-        private void buttonApp_MouseDown(object sender, MouseEventArgs e)
-        {
-            ButtonApp button = sender as ButtonApp;
-            b = true;
-            ob = button.Parent;
-            w = button.Left;
-            h = button.Top;
-            button.Parent = this;
-            button.BringToFront();
-            button.Left = MousePosition.X - Left - 55;
-            button.Top = MousePosition.Y - Top - 55;
-        }
-
-        private void buttonApp_MouseUp(object sender, MouseEventArgs e)
-        {
-            ButtonApp button = sender as ButtonApp;
-            b = false;
-            ProgramSetting tmp = programsList.Find(x => x.id == button.id);
-            if (button.Left + 50 < pnHead.Width && button.Top + 50 < pnHead.Height)
-            {
-                tmp.isVisible = true;
-                Controls.Remove(button);
-            }
-            else
-                if (button.Left + 50 < pnContents.Width && button.Top + 50 < pnContents.Height)
-            {
-                tmp.isVisible = false;
-                Controls.Remove(button);
-            }
-            else
-            {
-                button.Parent = ob;
-                button.Left = w;
-                button.Top = h;
-            }
-            update();
-        }
-
+        
         private void button6_Click(object sender, EventArgs e)
         {
         }
@@ -342,7 +292,10 @@ namespace ABShell
 
         private void cbUseShell_Click(object sender, EventArgs e)
         {
-
+            if (cbUseShell.Checked)
+                setShell(Application.ExecutablePath);
+            else
+                setShell("extlorer.exe");
         }
 
         private void btnFont_Click(object sender, EventArgs e)
@@ -366,13 +319,13 @@ namespace ABShell
 
         private void cbUseDisp_Click(object sender, EventArgs e)
         {
-            if (cbUseShell.Checked)
+            if (!cbUseDisp.Checked)
                 setDispVisible(true);
             else
                 setDispVisible(false);
         }
 
-        private void addBut_Click_1(object sender, EventArgs e)
+        private void addBut_Click(object sender, EventArgs e)
         {
             Button button = new Button();
             if (programsList.Find(x => x.id == button.TabIndex) != null)
@@ -407,14 +360,16 @@ namespace ABShell
             }
         }
 
-        private void buttonApp_MouseMove(object sender, MouseEventArgs e)
+        private void buttonApp4_Click(object sender, EventArgs e)
         {
-            if (b)
+            if (!isSetting)
             {
-                ButtonApp button = sender as ButtonApp;
-                button.Left = MousePosition.X - Left-55;
-                button.Top = MousePosition.Y - Top-55;
+                Process.Start("control", "printers");
             }
         }
+
+        private void userButton2_Load(object sender, EventArgs e)
+        {
+                    }
     }
 }
