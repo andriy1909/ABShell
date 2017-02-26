@@ -32,15 +32,8 @@
             this.pnHead = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFont = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnStandart = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.btnPowerOff = new System.Windows.Forms.Button();
-            this.btnRestart = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pnContents = new System.Windows.Forms.Panel();
@@ -49,10 +42,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnFont = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnPowerOff = new System.Windows.Forms.Button();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.cbUseDisp = new ABShell.CheckBox2();
             this.cbUseShell = new ABShell.CheckBox2();
@@ -76,11 +76,11 @@
             this.buttonApp12 = new ABShell.ButtonApp();
             this.pnHead.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnStandart.SuspendLayout();
             this.pnContents.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHead
@@ -92,7 +92,7 @@
             this.pnHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHead.Location = new System.Drawing.Point(0, 0);
             this.pnHead.Name = "pnHead";
-            this.pnHead.Size = new System.Drawing.Size(756, 178);
+            this.pnHead.Size = new System.Drawing.Size(754, 178);
             this.pnHead.TabIndex = 28;
             // 
             // label2
@@ -113,21 +113,6 @@
             this.panel1.Size = new System.Drawing.Size(520, 112);
             this.panel1.TabIndex = 34;
             // 
-            // btnFont
-            // 
-            this.btnFont.BackgroundImage = global::ABShell.Properties.Resources.fonts_4265;
-            this.btnFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFont.FlatAppearance.BorderSize = 0;
-            this.btnFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnFont.Location = new System.Drawing.Point(6, 3);
-            this.btnFont.Name = "btnFont";
-            this.btnFont.Size = new System.Drawing.Size(36, 31);
-            this.btnFont.TabIndex = 48;
-            this.btnFont.UseVisualStyleBackColor = true;
-            this.btnFont.Visible = false;
-            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -143,16 +128,6 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ABShell.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(236, 112);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnStandart
             // 
             this.pnStandart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -163,81 +138,15 @@
             this.pnStandart.Controls.Add(this.btnPowerOff);
             this.pnStandart.Controls.Add(this.btnRestart);
             this.pnStandart.Controls.Add(this.btnLogout);
-            this.pnStandart.Location = new System.Drawing.Point(269, 114);
+            this.pnStandart.Location = new System.Drawing.Point(267, 114);
             this.pnStandart.Name = "pnStandart";
             this.pnStandart.Size = new System.Drawing.Size(487, 64);
             this.pnStandart.TabIndex = 32;
             // 
-            // button12
-            // 
-            this.button12.BackgroundImage = global::ABShell.Properties.Resources.desktop2;
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(0, 0);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(64, 64);
-            this.button12.TabIndex = 46;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSetting.BackgroundImage")));
-            this.btnSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSetting.Location = new System.Drawing.Point(210, 0);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(64, 64);
-            this.btnSetting.TabIndex = 29;
-            this.btnSetting.UseVisualStyleBackColor = true;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
-            // btnPowerOff
-            // 
-            this.btnPowerOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPowerOff.BackgroundImage")));
-            this.btnPowerOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPowerOff.FlatAppearance.BorderSize = 0;
-            this.btnPowerOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPowerOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPowerOff.Location = new System.Drawing.Point(420, 1);
-            this.btnPowerOff.Name = "btnPowerOff";
-            this.btnPowerOff.Size = new System.Drawing.Size(64, 64);
-            this.btnPowerOff.TabIndex = 28;
-            this.btnPowerOff.UseVisualStyleBackColor = true;
-            // 
-            // btnRestart
-            // 
-            this.btnRestart.BackgroundImage = global::ABShell.Properties.Resources.restart;
-            this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRestart.FlatAppearance.BorderSize = 0;
-            this.btnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestart.Location = new System.Drawing.Point(350, 0);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(64, 64);
-            this.btnRestart.TabIndex = 27;
-            this.btnRestart.UseVisualStyleBackColor = true;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.BackgroundImage")));
-            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnLogout.Location = new System.Drawing.Point(280, 0);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(64, 64);
-            this.btnLogout.TabIndex = 26;
-            this.btnLogout.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.Location = new System.Drawing.Point(350, 400);
+            this.label6.Location = new System.Drawing.Point(348, 400);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 44);
             this.label6.TabIndex = 40;
@@ -248,7 +157,7 @@
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.Location = new System.Drawing.Point(416, 400);
+            this.label8.Location = new System.Drawing.Point(414, 400);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 44);
             this.label8.TabIndex = 43;
@@ -265,7 +174,7 @@
             this.pnContents.Controls.Add(this.button5);
             this.pnContents.Location = new System.Drawing.Point(0, 179);
             this.pnContents.Name = "pnContents";
-            this.pnContents.Size = new System.Drawing.Size(756, 101);
+            this.pnContents.Size = new System.Drawing.Size(754, 101);
             this.pnContents.TabIndex = 44;
             // 
             // button3
@@ -324,28 +233,15 @@
             this.panel2.Controls.Add(this.buttonApp12);
             this.panel2.Location = new System.Drawing.Point(0, 278);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(542, 213);
+            this.panel2.Size = new System.Drawing.Size(540, 213);
             this.panel2.TabIndex = 51;
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(156, 17);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(53, 51);
-            this.button5.TabIndex = 47;
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(542, 290);
+            this.label3.Location = new System.Drawing.Point(540, 290);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(214, 18);
             this.label3.TabIndex = 55;
@@ -356,7 +252,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(558, 354);
+            this.label1.Location = new System.Drawing.Point(556, 354);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 18);
             this.label1.TabIndex = 54;
@@ -374,8 +270,112 @@
             this.panel3.Controls.Add(this.button6);
             this.panel3.Location = new System.Drawing.Point(128, 133);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(754, 75);
+            this.panel3.Size = new System.Drawing.Size(752, 75);
             this.panel3.TabIndex = 53;
+            // 
+            // btnFont
+            // 
+            this.btnFont.BackgroundImage = global::ABShell.Properties.Resources.fonts_4265;
+            this.btnFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFont.FlatAppearance.BorderSize = 0;
+            this.btnFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnFont.Location = new System.Drawing.Point(6, 3);
+            this.btnFont.Name = "btnFont";
+            this.btnFont.Size = new System.Drawing.Size(36, 31);
+            this.btnFont.TabIndex = 48;
+            this.btnFont.UseVisualStyleBackColor = true;
+            this.btnFont.Visible = false;
+            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ABShell.Properties.Resources.logo1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(236, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button12
+            // 
+            this.button12.BackgroundImage = global::ABShell.Properties.Resources.desktop2;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button12.Location = new System.Drawing.Point(0, 0);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(64, 64);
+            this.button12.TabIndex = 46;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSetting.BackgroundImage")));
+            this.btnSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSetting.Location = new System.Drawing.Point(210, 0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(64, 64);
+            this.btnSetting.TabIndex = 29;
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // btnPowerOff
+            // 
+            this.btnPowerOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPowerOff.BackgroundImage")));
+            this.btnPowerOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPowerOff.FlatAppearance.BorderSize = 0;
+            this.btnPowerOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPowerOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPowerOff.Location = new System.Drawing.Point(420, 0);
+            this.btnPowerOff.Name = "btnPowerOff";
+            this.btnPowerOff.Size = new System.Drawing.Size(64, 64);
+            this.btnPowerOff.TabIndex = 28;
+            this.btnPowerOff.UseVisualStyleBackColor = true;
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.BackgroundImage = global::ABShell.Properties.Resources.restart;
+            this.btnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRestart.FlatAppearance.BorderSize = 0;
+            this.btnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestart.Location = new System.Drawing.Point(350, 0);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(64, 64);
+            this.btnRestart.TabIndex = 27;
+            this.btnRestart.UseVisualStyleBackColor = true;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.BackgroundImage")));
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnLogout.Location = new System.Drawing.Point(280, 0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(64, 64);
+            this.btnLogout.TabIndex = 26;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.Location = new System.Drawing.Point(156, 17);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(53, 51);
+            this.button5.TabIndex = 47;
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -394,21 +394,23 @@
             // 
             this.cbUseDisp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbUseDisp.Checked = false;
-            this.cbUseDisp.Location = new System.Drawing.Point(600, 372);
+            this.cbUseDisp.Location = new System.Drawing.Point(607, 311);
             this.cbUseDisp.Name = "cbUseDisp";
             this.cbUseDisp.SetText = "";
             this.cbUseDisp.Size = new System.Drawing.Size(93, 37);
             this.cbUseDisp.TabIndex = 53;
+            this.cbUseDisp.Click += new System.EventHandler(this.cbUseDisp_Click);
             // 
             // cbUseShell
             // 
             this.cbUseShell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbUseShell.Checked = false;
-            this.cbUseShell.Location = new System.Drawing.Point(600, 307);
+            this.cbUseShell.Location = new System.Drawing.Point(607, 375);
             this.cbUseShell.Name = "cbUseShell";
             this.cbUseShell.SetText = null;
             this.cbUseShell.Size = new System.Drawing.Size(85, 37);
             this.cbUseShell.TabIndex = 52;
+            this.cbUseShell.Click += new System.EventHandler(this.cbUseShell_Click);
             // 
             // buttonApp2
             // 
@@ -463,7 +465,7 @@
             // 
             // userButton1
             // 
-            this.userButton1.id = -1;
+            this.userButton1.id = 0;
             this.userButton1.image = global::ABShell.Properties.Resources.aboffice;
             this.userButton1.isVisible = false;
             this.userButton1.Location = new System.Drawing.Point(0, 0);
@@ -480,7 +482,7 @@
             this.btnUseShell.BackColor = System.Drawing.Color.Transparent;
             this.btnUseShell.BackgroundImage = global::ABShell.Properties.Resources.desktop;
             this.btnUseShell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUseShell.Location = new System.Drawing.Point(422, 354);
+            this.btnUseShell.Location = new System.Drawing.Point(420, 354);
             this.btnUseShell.Name = "btnUseShell";
             this.btnUseShell.Size = new System.Drawing.Size(60, 51);
             this.btnUseShell.TabIndex = 45;
@@ -492,7 +494,7 @@
             this.btnDisp.BackColor = System.Drawing.Color.Transparent;
             this.btnDisp.BackgroundImage = global::ABShell.Properties.Resources.taskmgr_icon;
             this.btnDisp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDisp.Location = new System.Drawing.Point(356, 355);
+            this.btnDisp.Location = new System.Drawing.Point(354, 355);
             this.btnDisp.Name = "btnDisp";
             this.btnDisp.Size = new System.Drawing.Size(60, 51);
             this.btnDisp.TabIndex = 46;
@@ -719,7 +721,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
-            this.ClientSize = new System.Drawing.Size(756, 491);
+            this.ClientSize = new System.Drawing.Size(754, 491);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -748,11 +750,11 @@
             this.pnHead.ResumeLayout(false);
             this.pnHead.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnStandart.ResumeLayout(false);
             this.pnContents.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

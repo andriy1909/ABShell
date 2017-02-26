@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Autorization.Designer.cs">
+      <DependentUpon>Autorization.cs</DependentUpon>
+    </Compile>
     <Compile Include="ButtonApp.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="UserButton.Designer.cs">
       <DependentUpon>UserButton.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Autorization.resx">
+      <DependentUpon>Autorization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ButtonNew.resx">
       <DependentUpon>ButtonNew.cs</DependentUpon>
     </EmbeddedResource>

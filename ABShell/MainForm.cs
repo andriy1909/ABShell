@@ -34,19 +34,14 @@ namespace ABShell
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (getShell()!= "explorer.exe")
-            {
-                btnUseShell.setLinevisible(true);
-                label8.Text = "Разрешить Windows Shell";
-            }
-            if (getDispVisible()!="-1")
-            {
-                btnDisp.setLinevisible(true);
-                label6.Text = "Разрешить диспечер задач";
-            }
+            Properties.Settings.Default.Reload();
+            cbUseShell.Checked = getShell() == "explorer.exe";
+            cbUseDisp.Checked = getDispVisible() == "-1";
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+            MaximumSize = new Size(2000, min);
+            MinimumSize = new Size(505, min);
 
-            //if (File.Exists(Application.StartupPath + "\\ABShellSetting.conf"))
+            if (File.Exists(Application.StartupPath + "\\ABShellSetting.bat"))
             loadSetting();
            /*
             SelectQuery query = new SelectQuery("Win32_UserAccount");
@@ -180,14 +175,19 @@ namespace ABShell
             power.Lock();
         }
 
+
         private void btnSetting_Click(object sender, EventArgs e)
         {
             isSetting = !isSetting;
-            //addBut.Visible = isSetting;
-            btnFont.Visible = isSetting;
-            richTextBox1.ReadOnly = !isSetting;
+            
             if (isSetting)
             {
+                Autorization form = new Autorization();
+                if (form.ShowDialog() != DialogResult.OK)
+                {
+                    isSetting = false;
+                    return;
+                }
                 MaximumSize = new Size(2000, max);
                 MinimumSize = new Size(505, max);
                 richTextBox1.BackColor = Color.White;
@@ -200,6 +200,9 @@ namespace ABShell
                 richTextBox1.BackColor = Color.FromArgb(146, 188, 235);
                 richTextBox1.BorderStyle = BorderStyle.None;
             }
+            //addBut.Visible = isSetting;
+            btnFont.Visible = isSetting;
+            richTextBox1.ReadOnly = !isSetting;
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -207,17 +210,14 @@ namespace ABShell
             if (isSetting)
             {
                 SettingBut form = new SettingBut();
-                form.setButton(sender as ButtonApp);
+                form.setButton(sender as UserButton);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    ButtonApp tmp = form.getButtonSetting();
-                    (sender as ButtonApp).image = tmp.image;
-                    (sender as ButtonApp).path = tmp.path;
-                    (sender as ButtonApp).isVisible = tmp.isVisible;
-                    (sender as ButtonApp).login = tmp.login;
-                    (sender as ButtonApp).password = tmp.password;
-                    (sender as ButtonApp).server = tmp.server;
-                    (sender as ButtonApp).path = tmp.path;
+                    UserButton tmp = form.getButtonSetting();
+                    (sender as UserButton).image = tmp.image;
+                    (sender as UserButton).path = tmp.path;
+                    (sender as UserButton).isVisible = tmp.isVisible;
+                    (sender as UserButton).path = tmp.path;
                     paintButtons(pnHead, false);
                     paintButtons(pnContents, true);
                 }
@@ -297,14 +297,11 @@ namespace ABShell
             form.setButton(button.TabIndex);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                ButtonApp tmp = form.getButtonSetting();
-                (sender as ButtonApp).image = tmp.image;
-                (sender as ButtonApp).path = tmp.path;
-                (sender as ButtonApp).isVisible = tmp.isVisible;
-                (sender as ButtonApp).login = tmp.login;
-                (sender as ButtonApp).password = tmp.password;
-                (sender as ButtonApp).server = tmp.server;
-                (sender as ButtonApp).path = tmp.path;
+                UserButton tmp = form.getButtonSetting();
+                (sender as UserButton).image = tmp.image;
+                (sender as UserButton).path = tmp.path;
+                (sender as UserButton).isVisible = tmp.isVisible;
+                (sender as UserButton).path = tmp.path;
                 paintButtons(pnContents, true);
                 button.Parent = pnContents;
             }
@@ -420,24 +417,21 @@ namespace ABShell
             if (isSetting)
             {
                 SettingBut form = new SettingBut();
-                form.setButton(sender as ButtonApp);
+                form.setButton(sender as UserButton);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    ButtonApp tmp = form.getButtonSetting();
-                    (sender as ButtonApp).image = tmp.image;
-                    (sender as ButtonApp).path = tmp.path;
-                    (sender as ButtonApp).isVisible = tmp.isVisible;
-                    (sender as ButtonApp).login = tmp.login;
-                    (sender as ButtonApp).password = tmp.password;
-                    (sender as ButtonApp).server = tmp.server;
-                    (sender as ButtonApp).path = tmp.path;
+                    UserButton tmp = form.getButtonSetting();
+                    (sender as UserButton).image = tmp.image;
+                    (sender as UserButton).path = tmp.path;
+                    (sender as UserButton).isVisible = tmp.isVisible;
+                    (sender as UserButton).path = tmp.path;
                     paintButtons(pnHead, false);
                     paintButtons(pnContents, true);
                 }
             }
             else
             {
-                Process.Start((sender as ButtonApp).path);
+                Process.Start((sender as UserButton).path);
             }
         }
 
@@ -545,6 +539,14 @@ namespace ABShell
         private void button12_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbUseDisp_Click(object sender, EventArgs e)
+        {
+            if (cbUseShell.Checked)
+                setDispVisible(true);
+            else
+                setDispVisible(false);
         }
 
         private void buttonApp_MouseMove(object sender, MouseEventArgs e)

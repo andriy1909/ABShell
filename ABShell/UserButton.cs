@@ -29,6 +29,7 @@ namespace ABShell
                 button.Image = value;
             }
         }
+
         public string SetText
         {
             get

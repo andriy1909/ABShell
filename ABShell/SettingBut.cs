@@ -12,7 +12,7 @@ namespace ABShell
 {
     public partial class SettingBut : Form
     {
-        ButtonApp button = new ButtonApp();
+        UserButton button = new UserButton();
 
         public SettingBut()
         {
@@ -40,19 +40,15 @@ namespace ABShell
             }
         }
 
-        public void setButton(ButtonApp button)
+        public void setButton(UserButton button)
         {
             this.button = button;
             if (button.image != null)
                 imgButtom.Image = button.image;
-            if (button.login != null)
-                tbLogin.Text = button.login.ToString();
-            if (button.password != null)
-                tbPassword.Text = button.password.ToString();
-            if (button.server != null)
-                tbServer.Text = button.server.ToString();
             if (button.path != null)
-                tbPath.Text = button.path.ToString();
+                tbPath.Text = button.path;
+            if (button.name != null)
+                tbName.Text = button.name;
         }
 
         public void setButton(int id)
@@ -64,11 +60,8 @@ namespace ABShell
         {
             button.image = imgButtom.Image;
             button.path = tbPath.Text;
+            button.SetText = tbName.Text;
             button.isVisible = false;
-            button.login = tbLogin.Text;
-            button.password = tbPassword.Text;
-            button.server = tbServer.Text;
-            button.path = tbPath.Text;
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -92,7 +85,7 @@ namespace ABShell
             }
         }
 
-        public ButtonApp getButtonSetting()
+        public UserButton getButtonSetting()
         {
             return button;
         }

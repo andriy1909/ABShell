@@ -23,27 +23,36 @@ namespace ABShell.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool UseWinShell {
+        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
+        public string password {
             get {
-                return ((bool)(this["UseWinShell"]));
-            }
-            set {
-                this["UseWinShell"] = value;
+                return ((string)(this["password"]));
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool UseDisp {
+        [global::System.Configuration.DefaultSettingValueAttribute("770")]
+        public int Wigth {
             get {
-                return ((bool)(this["UseDisp"]));
+                return ((int)(this["Wigth"]));
             }
             set {
-                this["UseDisp"] = value;
+                this["Wigth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Heigth {
+            get {
+                return ((int)(this["Heigth"]));
+            }
+            set {
+                this["Heigth"] = value;
             }
         }
     }
