@@ -35,12 +35,12 @@ namespace ABShell.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("770")]
-        public int Wigth {
+        public int Width {
             get {
-                return ((int)(this["Wigth"]));
+                return ((int)(this["Width"]));
             }
             set {
-                this["Wigth"] = value;
+                this["Width"] = value;
             }
         }
         

@@ -46,11 +46,6 @@ namespace ABShell
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            OnClick(e);
-        }
-
         private void CheckBox2_Click(object sender, EventArgs e)
         {
             Checked = !Checked;

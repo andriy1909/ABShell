@@ -14,9 +14,6 @@ namespace ABShell
         public int id;
         public string path;
         public Image image;
-        public string login;
-        public string password;
-        public string server;
         public bool isVisible;
 
         public ProgramSetting()
@@ -34,20 +31,14 @@ namespace ABShell
             id = button.id;
             path = button.path;
             image = button.image;
-            login = button.login;
-            password = button.password;
-            server = button.server;
             isVisible = button.isVisible;
         }
-        public ButtonApp getButton()
+        public UserButton getButton()
         {
-            ButtonApp button = new ButtonApp();
+            UserButton button = new UserButton();
             button.id = id;
             button.path = path;
-            button.password = password;
             button.image = image;
-            button.login = login;
-            button.server = server;
             button.isVisible = isVisible;
             return button;
         }

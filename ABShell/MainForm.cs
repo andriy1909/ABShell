@@ -35,59 +35,29 @@ namespace ABShell
         private void Form1_Load(object sender, EventArgs e)
         {
             Properties.Settings.Default.Reload();
-            cbUseShell.Checked = getShell() == "explorer.exe";
+            Width = Properties.Settings.Default.Width;
+            cbUseShell.Checked = getShell() == "explorer.exe" || getShell().ToLower() == "explorer";
             cbUseDisp.Checked = getDispVisible() == "-1";
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
             MaximumSize = new Size(2000, min);
             MinimumSize = new Size(505, min);
+            buttonApp1.path = Application.StartupPath + "\\TeamViewer.exe";
 
             if (File.Exists(Application.StartupPath + "\\ABShellSetting.bat"))
             loadSetting();
-           /*
-            SelectQuery query = new SelectQuery("Win32_UserAccount");
-            ManagementObjectSearcher users = new ManagementObjectSearcher(query);
-            foreach (ManagementObject user in users.Get())
-            {
-                UserSetting tmpUser = usersList.Find(x => x.name == user["Name"].ToString());
-                if (tmpUser == null)
-                {
-                    usersList.Add(new UserSetting() { name = user["Name"].ToString() });
-                    dataGridView1.Rows.Add(new object[] { user["Name"] });
-                }
-                else
-                {
-                    dataGridView1.Rows.Add(new object[] { tmpUser.name });
-                }
-            }
-            Height = min;*/
+            Height = min;
         }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-        }
-
+        
         public void saveSetting()
         {
-            /* StreamWriter swtr = new StreamWriter(Application.StartupPath + "\\ABShellSetting.conf", false);
-             try
-             {
-                 mainData = new MainData() { usersList = usersList, programsList = programsList };
-                 XmlSerializer xmlser = new XmlSerializer(typeof(MainData));
-                 xmlser.Serialize(swtr, mainData);
-             }
-             finally
-             {
-                 swtr.Close();
-             }*/
-
-            //Сохраняем состояние объекта superHuman в двоичном формате
+            //Сохраняем в двоичном формате
             BinaryFormatter formatter = new BinaryFormatter();
             using (var fStream = new FileStream("./ABShellSetting.dat", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 formatter.Serialize(fStream, programsList);
             }
         }
-        public void loadSetting()
+        public void loadSetting2()
         {
             /* StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
             try
@@ -111,29 +81,12 @@ namespace ABShell
             programsList.Add(new ProgramSetting() { id = 46, isVisible = false });
             programsList.Add(new ProgramSetting() { id = 47, isVisible = true });
         }
-        public void loadSetting2()
+        public void loadSetting()
         {
             BinaryFormatter formatter = new BinaryFormatter();
             using (var fStream = File.OpenRead("./ABShellSetting.dat"))
             {
                 programsList = (List<ProgramSetting>)formatter.Deserialize(fStream);
-            }
-        }
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            saveSetting();
-        }
-
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 1 && e.RowIndex >= 0)
-            {
-                //UserSetting tmpUser = usersList.Find(x => x.name == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                //if (tmpUser != null)
-                //{
-                    // tmpUser.changeShell = (bool)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-                //}
             }
         }
         public void setShell(string name)
@@ -162,13 +115,11 @@ namespace ABShell
             Reboot power = new Reboot();
             power.halt(false, false);
         }
-
         private void btnRestart_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
             power.halt(true, false);
         }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
@@ -199,116 +150,14 @@ namespace ABShell
                 MinimumSize = new Size(505, min);
                 richTextBox1.BackColor = Color.FromArgb(146, 188, 235);
                 richTextBox1.BorderStyle = BorderStyle.None;
+                Properties.Settings.Default.Heigth = Height;
+                Properties.Settings.Default.Save();
             }
-            //addBut.Visible = isSetting;
+            addBut.Visible = isSetting;
             btnFont.Visible = isSetting;
             richTextBox1.ReadOnly = !isSetting;
         }
-
-        private void button_Click(object sender, EventArgs e)
-        {
-            if (isSetting)
-            {
-                SettingBut form = new SettingBut();
-                form.setButton(sender as UserButton);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    UserButton tmp = form.getButtonSetting();
-                    (sender as UserButton).image = tmp.image;
-                    (sender as UserButton).path = tmp.path;
-                    (sender as UserButton).isVisible = tmp.isVisible;
-                    (sender as UserButton).path = tmp.path;
-                    paintButtons(pnHead, false);
-                    paintButtons(pnContents, true);
-                }
-            }
-            else
-            {
-                Process.Start(programsList.Find(x => x.id == (sender as Button).TabIndex).path);
-            }
-            
-        }
-
-        private void btUseShell_Click(object sender, EventArgs e)
-        {
-            btnUseShell.setLinevisible(!btnUseShell.getLinevisible());
-            if (btnUseShell.getLinevisible())
-            {
-                setShell(Application.ExecutablePath);
-                label8.Text = "Разрешить Windows Shell";
-            }
-            else
-            {
-                setShell("explorer.exe");                
-                label8.Text = "Заменить Windows Shell";
-            }
-        }
-
-        private void btDisp_Click(object sender, EventArgs e)
-        {
-            btnDisp.setLinevisible(!btnDisp.getLinevisible());
-            if (!btnDisp.getLinevisible())
-            {
-                label6.Text = "Запретить диспечер задач";
-                setDispVisible(true);
-            }
-            else
-            {
-                label6.Text = "Разрешить диспечер задач";
-                setDispVisible(false);
-            }
-        }
         
-        public void paintButtons(object panel,bool comtents)
-        {
-            /*int i = 0;
-            foreach (Button item in ((Panel)panel).Controls)
-            {
-                ProgramSetting setting = programsList.Find(x => x.id == item.TabIndex);
-                if (setting != null && setting.isVisible == !comtents)
-                {
-                    item.BackgroundImage = setting.image;
-                    item.Left = i * 75 + 5;
-                    i++;
-                }
-            }*/
-        }
-
-        public void addButton(Button button)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            SettingBut form = new SettingBut();
-            form.ShowDialog();
-        }
-
-        private void addBut_Click(object sender, EventArgs e)
-        {
-            Button button = new Button();
-            if (programsList.Find(x => x.id == button.TabIndex) != null)
-            {
-                button.TabIndex = button.TabIndex + 1;
-                addButton(button);
-            }
-            SettingBut form = new SettingBut();
-            form.setButton(button.TabIndex);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                UserButton tmp = form.getButtonSetting();
-                (sender as UserButton).image = tmp.image;
-                (sender as UserButton).path = tmp.path;
-                (sender as UserButton).isVisible = tmp.isVisible;
-                (sender as UserButton).path = tmp.path;
-                paintButtons(pnContents, true);
-                button.Parent = pnContents;
-            }
-            else
-                Controls.Remove(button);
-        }
-
         //отключить Диспетчер задач
         public void setDispVisible(bool value)
         {
@@ -332,7 +181,7 @@ namespace ABShell
         public string getDispVisible()
         {
             RegistryKey regkey;
-            string keyValueInt = null;// = "1";
+            string keyValueInt = "1";
             string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
 
             try
@@ -352,67 +201,42 @@ namespace ABShell
         {
             e.Cancel = true;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        public void update(bool userVis=false)
         {
-            paintButtons(pnHead,false);
-        }
-
-        private void button6_MouseClick(object sender, MouseEventArgs e)
-        {
-            //if(e.Button==MouseButtons.Right)
-            //{
-                programsList.Find(x => x.id == (sender as Button).TabIndex).revers();
-                paintButtons(pnHead, false);
-                paintButtons(pnContents, true);
-            //}
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            saveSetting();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            loadSetting2();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            update();
-        }
-
-        public void update()
-        {
-            pnHead.Controls.Clear();
             pnContents.Controls.Clear();
-            int i = 0, j = 0;
+            int i = 0;
             foreach (ProgramSetting item in programsList)
             {
-                ButtonApp tmp = new ButtonApp();
+                UserButton tmp = new UserButton();
                 tmp = item.getButton();
-                tmp.Click += buttonApp_Click;
-                tmp.MouseDown += buttonApp_MouseDown;
-                tmp.MouseMove += buttonApp_MouseMove;
-                tmp.MouseUp += buttonApp_MouseUp;
-                tmp.Top = 5;
-                if (item.isVisible)
+                //tmp.Click += buttonApp_Click;
+                //tmp.MouseDown += buttonApp_MouseDown;
+                //tmp.MouseMove += buttonApp_MouseMove;
+                //tmp.MouseUp += buttonApp_MouseUp;
+                tmp.Top = 0;
+                if (userVis || item.isVisible)
                 {
-                    tmp.Left = 5 + i * 75;
-                    pnHead.Controls.Add(tmp);
+                    tmp.Left = i * 75;
+                    pnContents.Controls.Add(tmp);
                     i++;
                 }
-                else
-                {
-                    tmp.Left = 5 + j * 75;
-                    pnContents.Controls.Add(tmp);
-                    j++;
-                }
             }
+            Button add = new Button();
+            add.Name = "addBut";
+            add.Width = 51;
+            add.Height = 51;
+            add.Top = 7;
+            add.Left = i * 75 + 7;
+            add.Image = btnCopy.Image;
+            add.FlatStyle = FlatStyle.Flat;
+            add.FlatAppearance.BorderSize = 0;
+            add.BackgroundImageLayout = ImageLayout.Stretch;
+            add.TabIndex = 1;
+            pnContents.Controls.Add(add);
         }
 
-        private void buttonApp_Click(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
             if (isSetting)
             {
@@ -425,8 +249,7 @@ namespace ABShell
                     (sender as UserButton).path = tmp.path;
                     (sender as UserButton).isVisible = tmp.isVisible;
                     (sender as UserButton).path = tmp.path;
-                    paintButtons(pnHead, false);
-                    paintButtons(pnContents, true);
+                    update(true);
                 }
             }
             else
@@ -547,6 +370,41 @@ namespace ABShell
                 setDispVisible(true);
             else
                 setDispVisible(false);
+        }
+
+        private void addBut_Click_1(object sender, EventArgs e)
+        {
+            Button button = new Button();
+            if (programsList.Find(x => x.id == button.TabIndex) != null)
+            {
+                button.TabIndex = button.TabIndex + 1;
+            }
+            SettingBut form = new SettingBut();
+            form.setButton(button.TabIndex);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                UserButton tmp = form.getButtonSetting();
+                (sender as UserButton).image = tmp.image;
+                (sender as UserButton).path = tmp.path;
+                (sender as UserButton).isVisible = tmp.isVisible;
+                (sender as UserButton).path = tmp.path;
+                update();
+                button.Parent = pnContents;
+            }
+            else
+                Controls.Remove(button);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonApp2_Click(object sender, EventArgs e)
+        {
+            if (!isSetting)
+            {
+                Process.Start((sender as ButtonApp).path);
+            }
         }
 
         private void buttonApp_MouseMove(object sender, MouseEventArgs e)
