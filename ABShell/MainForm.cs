@@ -46,7 +46,7 @@ namespace ABShell
             if (File.Exists(Application.StartupPath + "\\ABShellSetting.bat"))
                 loadSetting();
             else
-                programsList.Add(new ProgramSetting() { id = 0, image= })
+                programsList.Add(new ProgramSetting() { id = 0 });
             Height = min;
         }
         
@@ -58,30 +58,6 @@ namespace ABShell
             {
                 formatter.Serialize(fStream, programsList);
             }
-        }
-        public void loadSetting2()
-        {
-            /* StreamReader srdr = new StreamReader(Application.StartupPath + "\\ABShellSetting.conf");
-            try
-            {
-                XmlSerializer xmlser = new XmlSerializer(typeof(MainData));
-                mainData = (MainData)xmlser.Deserialize(srdr);
-                usersList = mainData.usersList;
-                programsList = mainData.programsList;
-            }
-            finally
-            {
-                srdr.Close();
-            }*/
-            programsList.Clear();
-            programsList.Add(new ProgramSetting() { id = 40, isVisible = true });
-            programsList.Add(new ProgramSetting() { id = 41, isVisible = false });
-            programsList.Add(new ProgramSetting() { id = 42, isVisible = true });
-            programsList.Add(new ProgramSetting() { id = 43, isVisible = false });
-            programsList.Add(new ProgramSetting() { id = 44, isVisible = false });
-            programsList.Add(new ProgramSetting() { id = 45, isVisible = true });
-            programsList.Add(new ProgramSetting() { id = 46, isVisible = false });
-            programsList.Add(new ProgramSetting() { id = 47, isVisible = true });
         }
         public void loadSetting()
         {
@@ -210,9 +186,11 @@ namespace ABShell
             int i = 0;
             foreach (ProgramSetting item in programsList)
             {
+                if (item.id == 0)
+                    continue;
                 UserButton tmp = new UserButton();
                 tmp = item.getButton();
-                //tmp.Click += buttonApp_Click;
+                tmp.Click += button_Click;
                 //tmp.MouseDown += buttonApp_MouseDown;
                 //tmp.MouseMove += buttonApp_MouseMove;
                 //tmp.MouseUp += buttonApp_MouseUp;
@@ -251,7 +229,7 @@ namespace ABShell
                     (sender as UserButton).image = tmp.image;
                     (sender as UserButton).path = tmp.path;
                     (sender as UserButton).isVisible = tmp.isVisible;
-                    (sender as UserButton).path = tmp.path;
+                    (sender as UserButton).name = tmp.path;
                     update(true);
                 }
             }
@@ -340,7 +318,7 @@ namespace ABShell
                 (sender as UserButton).image = tmp.image;
                 (sender as UserButton).path = tmp.path;
                 (sender as UserButton).isVisible = tmp.isVisible;
-                (sender as UserButton).path = tmp.path;
+                (sender as UserButton).name = tmp.name;
                 update();
                 button.Parent = pnContents;
             }
@@ -354,7 +332,8 @@ namespace ABShell
 
         private void buttonApp2_Click(object sender, EventArgs e)
         {
-            if (!isSetting)
+            Autorization form = new Autorization();
+            if (form.ShowDialog() == DialogResult.OK)
             {
                 Process.Start((sender as ButtonApp).path);
             }
@@ -362,14 +341,61 @@ namespace ABShell
 
         private void buttonApp4_Click(object sender, EventArgs e)
         {
-            if (!isSetting)
+            if (isSetting)
             {
-                Process.Start("control", "printers");
+                SettingBut form = new SettingBut();
+                form.setButton(sender as UserButton);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    UserButton tmp = form.getButtonSetting();
+                    (sender as UserButton).image = tmp.image;
+                    (sender as UserButton).path = tmp.path;
+                    (sender as UserButton).isVisible = tmp.isVisible;
+                }
+            }
+            else
+            {
+                Autorization form = new Autorization();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    Process.Start("control", "printers");
+                }
             }
         }
 
         private void userButton2_Load(object sender, EventArgs e)
         {
-                    }
+
+        }
+
+
+        private void userButton1_Click(object sender, EventArgs e)
+        {
+            if (isSetting)
+            {
+                SettingBut form = new SettingBut();
+                form.setButton(sender as UserButton);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    UserButton tmp = form.getButtonSetting();
+                    (sender as UserButton).image = tmp.image;
+                    (sender as UserButton).path = tmp.path;
+                    (sender as UserButton).isVisible = tmp.isVisible;
+                    (sender as UserButton).path = tmp.path;
+                }
+            }
+            else
+            {
+                Process.Start((sender as UserButton).path);
+            }
+        }
+
+        private void buttonApp1_Click(object sender, EventArgs e)
+        {
+            if (!isSetting)
+            {
+                Process.Start((sender as ButtonApp).path);
+            }
+        }
     }
 }

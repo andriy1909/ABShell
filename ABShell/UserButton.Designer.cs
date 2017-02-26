@@ -37,15 +37,18 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(0, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 33);
             this.label1.TabIndex = 1;
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button
             // 
+            this.button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button.Image = global::ABShell.Properties.Resources.Application;
             this.button.Location = new System.Drawing.Point(6, 4);
             this.button.Name = "button";
@@ -53,6 +56,7 @@
             this.button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.button.TabIndex = 2;
             this.button.TabStop = false;
+            this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // UserButton
             // 

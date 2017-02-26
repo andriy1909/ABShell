@@ -45,23 +45,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.userButton1 = new ABShell.UserButton();
             this.cbUseDisp = new ABShell.CheckBox2();
             this.cbUseShell = new ABShell.CheckBox2();
             this.buttonApp2 = new ABShell.ButtonApp();
             this.buttonApp1 = new ABShell.ButtonApp();
             this.buttonApp4 = new ABShell.ButtonApp();
-            this.userButton1 = new ABShell.UserButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnHead.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnStandart.SuspendLayout();
             this.pnContents.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHead
@@ -137,9 +131,6 @@
             // pnStandart
             // 
             this.pnStandart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnStandart.Controls.Add(this.pictureBox4);
-            this.pnStandart.Controls.Add(this.pictureBox3);
-            this.pnStandart.Controls.Add(this.pictureBox2);
             this.pnStandart.Controls.Add(this.buttonApp2);
             this.pnStandart.Controls.Add(this.buttonApp1);
             this.pnStandart.Controls.Add(this.buttonApp4);
@@ -224,7 +215,7 @@
             this.addBut.FlatAppearance.BorderSize = 0;
             this.addBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBut.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addBut.Location = new System.Drawing.Point(82, 20);
+            this.addBut.Location = new System.Drawing.Point(16, 25);
             this.addBut.Name = "addBut";
             this.addBut.Size = new System.Drawing.Size(51, 51);
             this.addBut.TabIndex = 47;
@@ -266,6 +257,20 @@
             this.btnCopy.TabIndex = 56;
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Visible = false;
+            // 
+            // userButton1
+            // 
+            this.userButton1.id = 0;
+            this.userButton1.image = global::ABShell.Properties.Resources.aboffice;
+            this.userButton1.isVisible = false;
+            this.userButton1.Location = new System.Drawing.Point(0, 179);
+            this.userButton1.name = "АБ ОФИС";
+            this.userButton1.Name = "userButton1";
+            this.userButton1.path = "";
+            this.userButton1.SetText = "АБ ОФИС";
+            this.userButton1.Size = new System.Drawing.Size(75, 100);
+            this.userButton1.TabIndex = 52;
+            this.userButton1.Click += new System.EventHandler(this.userButton1_Click);
             // 
             // cbUseDisp
             // 
@@ -327,7 +332,7 @@
             this.buttonApp1.Size = new System.Drawing.Size(64, 64);
             this.buttonApp1.TabIndex = 54;
             this.buttonApp1.UseVisualStyleBackColor = true;
-            this.buttonApp1.Click += new System.EventHandler(this.buttonApp2_Click);
+            this.buttonApp1.Click += new System.EventHandler(this.buttonApp1_Click);
             // 
             // buttonApp4
             // 
@@ -348,52 +353,6 @@
             this.buttonApp4.TabIndex = 50;
             this.buttonApp4.UseVisualStyleBackColor = true;
             this.buttonApp4.Click += new System.EventHandler(this.buttonApp4_Click);
-            // 
-            // userButton1
-            // 
-            this.userButton1.id = 0;
-            this.userButton1.image = global::ABShell.Properties.Resources.aboffice;
-            this.userButton1.isVisible = false;
-            this.userButton1.Location = new System.Drawing.Point(0, 179);
-            this.userButton1.name = "АБ ОФИС";
-            this.userButton1.Name = "userButton1";
-            this.userButton1.path = "";
-            this.userButton1.SetText = "АБ ОФИС";
-            this.userButton1.Size = new System.Drawing.Size(75, 100);
-            this.userButton1.TabIndex = 52;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ABShell.Properties.Resources.plainicon_com_49216_128px_2dd;
-            this.pictureBox2.Location = new System.Drawing.Point(28, 34);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(33, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 56;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ABShell.Properties.Resources.plainicon_com_49216_128px_2dd;
-            this.pictureBox3.Location = new System.Drawing.Point(100, 34);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(33, 28);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 57;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Visible = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ABShell.Properties.Resources.plainicon_com_49216_128px_2dd;
-            this.pictureBox4.Location = new System.Drawing.Point(171, 34);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(33, 28);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 58;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
             // 
             // MainForm
             // 
@@ -424,9 +383,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnStandart.ResumeLayout(false);
             this.pnContents.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,9 +411,6 @@
         private System.Windows.Forms.Button btnCopy;
         private ButtonApp buttonApp2;
         private ButtonApp buttonApp1;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
