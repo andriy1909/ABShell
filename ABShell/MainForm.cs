@@ -23,8 +23,8 @@ namespace ABShell
     {
         private bool isSetting = false;
         private List<ProgramSetting> programsList;
-        int min = 130;
-        int max = 335;
+        int min = 320;
+        int max = 530;
 
         public MainForm()
         {
@@ -183,16 +183,22 @@ namespace ABShell
         private void btnSetting_Click(object sender, EventArgs e)
         {
             isSetting = !isSetting;
-            addBut.Visible = isSetting;
+            //addBut.Visible = isSetting;
+            btnFont.Visible = isSetting;
+            richTextBox1.ReadOnly = !isSetting;
             if (isSetting)
             {
                 MaximumSize = new Size(2000, max);
                 MinimumSize = new Size(505, max);
+                richTextBox1.BackColor = Color.White;
+                richTextBox1.BorderStyle = BorderStyle.FixedSingle;
             }
             else
             {
                 MaximumSize = new Size(2000, min);
                 MinimumSize = new Size(505, min);
+                richTextBox1.BackColor = Color.FromArgb(146, 188, 235);
+                richTextBox1.BorderStyle = BorderStyle.None;
             }
         }
 
@@ -534,6 +540,11 @@ namespace ABShell
         private void btnSetting_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonApp_MouseMove(object sender, MouseEventArgs e)

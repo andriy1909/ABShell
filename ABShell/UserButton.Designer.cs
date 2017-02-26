@@ -29,46 +29,46 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button = new System.Windows.Forms.Button();
+            this.button = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.button)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(0, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 33);
             this.label1.TabIndex = 1;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button
             // 
-            this.button.BackgroundImage = global::ABShell.Properties.Resources.Application;
-            this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button.FlatAppearance.BorderSize = 0;
-            this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button.Location = new System.Drawing.Point(6, 3);
+            this.button.Image = global::ABShell.Properties.Resources.Application;
+            this.button.Location = new System.Drawing.Point(6, 4);
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(64, 64);
-            this.button.TabIndex = 0;
-            this.button.UseVisualStyleBackColor = true;
+            this.button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.button.TabIndex = 2;
+            this.button.TabStop = false;
             // 
             // UserButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button);
+            this.Controls.Add(this.label1);
             this.Name = "UserButton";
-            this.Size = new System.Drawing.Size(75, 103);
+            this.Size = new System.Drawing.Size(75, 100);
+            ((System.ComponentModel.ISupportInitialize)(this.button)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox button;
     }
 }

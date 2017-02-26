@@ -1560,7 +1560,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="addBut.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DQAACw0B7QfALAAAAAd0SU1FB+ECFA4vGlGXHTIAACooSURBVHhe7V0HdFVV2j0z1nEcR6Wk15feEwKI
@@ -1746,7 +1746,7 @@
         Zm1tzV577bUOEfwJQOT7+vqKn4R/2xj7f4Leg7ScFZhqAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DQAACw0B7QfALAAAAAd0SU1FB+ECFA4vGlGXHTIAACooSURBVHhe7V0HdFVV2j0z1nEcR6Wk15feEwKI

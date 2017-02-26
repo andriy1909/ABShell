@@ -26,30 +26,31 @@ namespace ABShell
             set
             {
                 this.images = value;
-                if (BackgroundImage != value)
-                    BackgroundImage = value;
+                button.Image = value;
+            }
+        }
+        public string SetText
+        {
+            get
+            {
+                return this.name;
+            }
+            set
+            {
+                this.name = value;
+                label1.Text = value;
             }
         }
 
         public UserButton()
         {
             InitializeComponent();
-            button.FlatStyle = FlatStyle.Flat;
-            button.BackgroundImageLayout = ImageLayout.Stretch;
-            button.UseVisualStyleBackColor = true;
-            button.FlatAppearance.BorderSize = 0;
             id = -1;
             path = "";
             image = null;
             isVisible = false;
-            button.BackgroundImageChanged += ButtonApp_BackgroundImageChanged;
         }
-
-        private void ButtonApp_BackgroundImageChanged(object sender, EventArgs e)
-        {
-            image = BackgroundImage;
-        }
-
+        
         public void revers()
         {
             isVisible = !isVisible;
