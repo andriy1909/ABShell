@@ -83,6 +83,26 @@ namespace ABShell.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add1__4151 {
+            get {
+                object obj = ResourceManager.GetObject("add1-_4151", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add1__41512 {
+            get {
+                object obj = ResourceManager.GetObject("add1-_41512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Application {
             get {
                 object obj = ResourceManager.GetObject("Application", resourceCulture);

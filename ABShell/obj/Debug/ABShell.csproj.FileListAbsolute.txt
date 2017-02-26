@@ -30,10 +30,9 @@ D:\WorkSpace\Integra\ABShell\obj\Debug\ABShell.CheckBox2.resources
 D:\WorkSpace\Integra\ABShell\ABShell\bin\Debug\ABShell.exe.config
 D:\WorkSpace\Integra\ABShell\ABShell\obj\Debug\ABShell.exe
 D:\WorkSpace\Integra\ABShell\ABShell\obj\Debug\ABShell.pdb
-D:\WorkSpace\ABShell\ABShell\bin\Debug\ABShell.exe.config
-D:\WorkSpace\ABShell\ABShell\bin\Debug\ABShell.exe
-D:\WorkSpace\ABShell\ABShell\bin\Debug\ABShell.pdb
-D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.csprojResolveAssemblyReference.cache
+D:\WorkSpace\ABShell\ABShell\bin\Debug\Integra.exe.config
+D:\WorkSpace\ABShell\ABShell\bin\Debug\Integra.exe
+D:\WorkSpace\ABShell\ABShell\bin\Debug\Integra.pdb
 D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.Autorization.resources
 D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.ButtonNew.resources
 D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.ButtonRedLine.resources
@@ -43,5 +42,6 @@ D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.Properties.Resources.resources
 D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.SettingBut.resources
 D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.UserButton.resources
 D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.csproj.GenerateResource.Cache
-D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.exe
-D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.pdb
+D:\WorkSpace\ABShell\ABShell\obj\Debug\Integra.exe
+D:\WorkSpace\ABShell\ABShell\obj\Debug\Integra.pdb
+D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.csprojResolveAssemblyReference.cache

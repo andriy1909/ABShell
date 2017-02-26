@@ -12,7 +12,7 @@ namespace ABShell
     public partial class UserButton : UserControl
     {
         public int id { get; set; }
-        public string name { get; set; }
+        private string name { get; set; }
         public string path { get; set; }
         private Image images;
         public bool isVisible { get; set; }

@@ -36,20 +36,39 @@ namespace ABShell
         {
             Properties.Settings.Default.Reload();
             Width = Properties.Settings.Default.Width;
+            richTextBox1.Font = Properties.Settings.Default.Font;
             cbUseShell.Checked = !(getShell() == "explorer.exe" || getShell().ToLower() == "explorer");
             cbUseDisp.Checked = getDispVisible() == "1";
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
             MaximumSize = new Size(2000, min);
             MinimumSize = new Size(505, min);
-            buttonApp1.path = Application.StartupPath + "\\TeamViewer.exe";
 
-            if (File.Exists(Application.StartupPath + "\\ABShellSetting.bat"))
+            if (File.Exists(Application.StartupPath + "\\ABShellSetting.dat"))
                 loadSetting();
             else
-                programsList.Add(new ProgramSetting() { id = 0 });
+            {
+                programsList.Add(new ProgramSetting()
+                {
+                    id = 0,
+                    image = btnABOffice.image,
+                    path = btnABOffice.path,
+                    name = btnABOffice.SetText,
+                    isVisible = true
+            });
+                programsList.Add(new ProgramSetting()
+                {
+                    id = 1,
+                    image = btnTeamViewer.image,
+                    path = Application.StartupPath + "\\TeamViewer.exe",
+                    name = btnTeamViewer.SetText,
+                    isVisible = true
+                });
+                btnTeamViewer.path = Application.StartupPath + "\\TeamViewer.exe";
+            }
+            update();
             Height = min;
         }
-        
+
         public void saveSetting()
         {
             //Сохраняем в двоичном формате
@@ -66,7 +85,19 @@ namespace ABShell
             {
                 programsList = (List<ProgramSetting>)formatter.Deserialize(fStream);
             }
+            btnABOffice = loadButton(programsList.Find(x => x.id == 0), btnABOffice);
+            btnTeamViewer = loadButton(programsList.Find(x => x.id == 1), btnABOffice);
         }
+
+        public UserButton loadButton(ProgramSetting setting, UserButton button)
+        {
+            button.isVisible = setting.isVisible;
+            button.SetText = setting.name;
+            button.image = setting.image;
+            button.path = setting.path;
+            return button;
+        }
+
         public void setShell(string name)
         {
             RegistryKey hklm = Registry.CurrentUser;
@@ -108,7 +139,7 @@ namespace ABShell
         private void btnSetting_Click(object sender, EventArgs e)
         {
             isSetting = !isSetting;
-            
+
             if (isSetting)
             {
                 Autorization form = new Autorization();
@@ -128,14 +159,17 @@ namespace ABShell
                 MinimumSize = new Size(505, min);
                 richTextBox1.BackColor = Color.FromArgb(146, 188, 235);
                 richTextBox1.BorderStyle = BorderStyle.None;
-                Properties.Settings.Default.Heigth = Height;
+                Properties.Settings.Default.Width = Width;
+                Properties.Settings.Default.Font = richTextBox1.Font;
                 Properties.Settings.Default.Save();
+                saveSetting();
             }
             addBut.Visible = isSetting;
             btnFont.Visible = isSetting;
             richTextBox1.ReadOnly = !isSetting;
+            update();
         }
-        
+
         //отключить Диспетчер задач
         public void setDispVisible(bool value)
         {
@@ -179,23 +213,20 @@ namespace ABShell
         {
             e.Cancel = true;
         }
-        
-        public void update(bool userVis=false)
+
+        public void update()
         {
             pnContents.Controls.Clear();
             int i = 0;
             foreach (ProgramSetting item in programsList)
             {
-                if (item.id == 0)
+                if (item.id == 0 || item.id == 1) 
                     continue;
                 UserButton tmp = new UserButton();
                 tmp = item.getButton();
                 tmp.Click += button_Click;
-                //tmp.MouseDown += buttonApp_MouseDown;
-                //tmp.MouseMove += buttonApp_MouseMove;
-                //tmp.MouseUp += buttonApp_MouseUp;
                 tmp.Top = 0;
-                if (userVis || item.isVisible)
+                if (isSetting || item.isVisible)
                 {
                     tmp.Left = i * 75;
                     pnContents.Controls.Add(tmp);
@@ -207,13 +238,13 @@ namespace ABShell
             add.Width = 51;
             add.Height = 51;
             add.Top = 20;
-            add.Left = i * 75 + 7;
-            add.Image = btnCopy.Image;
+            add.Left = i * 75 + 14;
+            add.BackgroundImage = Properties.Resources.add1__41512;
+            add.BackgroundImageLayout = ImageLayout.Stretch;
             add.FlatStyle = FlatStyle.Flat;
             add.FlatAppearance.BorderSize = 0;
-            add.BackgroundImageLayout = ImageLayout.Stretch;
-            add.TabIndex = 1;
             add.Click += addBut_Click;
+            add.Visible = isSetting;
             pnContents.Controls.Add(add);
         }
 
@@ -229,43 +260,14 @@ namespace ABShell
                     (sender as UserButton).image = tmp.image;
                     (sender as UserButton).path = tmp.path;
                     (sender as UserButton).isVisible = tmp.isVisible;
-                    (sender as UserButton).name = tmp.path;
-                    update(true);
+                    (sender as UserButton).SetText = tmp.path;
+                    update();
                 }
             }
             else
             {
                 Process.Start((sender as UserButton).path);
             }
-        }
-
-        private void pnContents_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            programsList.Clear();
-            foreach (ButtonApp item in pnContents.Controls)
-            {
-                ProgramSetting tmp = new ProgramSetting();
-                tmp.setSetting(item);
-                programsList.Add(tmp);
-            }
-            foreach (ButtonApp item in pnHead.Controls)
-            {
-                ProgramSetting tmp = new ProgramSetting();
-                tmp.setSetting(item);
-                programsList.Add(tmp);
-            }
-        }
-        
-        private void button6_Click(object sender, EventArgs e)
-        {
-        }
-        private void button7_Click(object sender, EventArgs e)
-        {
         }
 
         private void cbUseShell_Click(object sender, EventArgs e)
@@ -279,22 +281,12 @@ namespace ABShell
         private void btnFont_Click(object sender, EventArgs e)
         {
             FontDialog font = new FontDialog();
-            if(font.ShowDialog()==DialogResult.OK)
+            if (font.ShowDialog() == DialogResult.OK)
             {
                 richTextBox1.Font = font.Font;
             }
         }
-
-        private void btnSetting_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void cbUseDisp_Click(object sender, EventArgs e)
         {
             if (!cbUseDisp.Checked)
@@ -305,8 +297,9 @@ namespace ABShell
 
         private void addBut_Click(object sender, EventArgs e)
         {
-            Button button = new Button();
-            if (programsList.Find(x => x.id == button.TabIndex) != null)
+            UserButton button = new UserButton();
+            button.TabIndex = 100;
+            while (programsList.Find(x => x.id == button.TabIndex) != null)
             {
                 button.TabIndex = button.TabIndex + 1;
             }
@@ -315,21 +308,17 @@ namespace ABShell
             if (form.ShowDialog() == DialogResult.OK)
             {
                 UserButton tmp = form.getButtonSetting();
-                (sender as UserButton).image = tmp.image;
-                (sender as UserButton).path = tmp.path;
-                (sender as UserButton).isVisible = tmp.isVisible;
-                (sender as UserButton).name = tmp.name;
+                tmp.Parent = pnContents;
+                tmp.Top = 0;
+                tmp.Left = (pnContents.Controls.Count - 3) * 75;
+                (sender as Button).Left += 75;
+                programsList.Add(form.getSetting());
                 update();
-                button.Parent = pnContents;
             }
             else
                 Controls.Remove(button);
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
+        
         private void buttonApp2_Click(object sender, EventArgs e)
         {
             Autorization form = new Autorization();
@@ -362,14 +351,8 @@ namespace ABShell
                 }
             }
         }
-
-        private void userButton2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void userButton1_Click(object sender, EventArgs e)
+         
+        private void standartButt_Click(object sender, EventArgs e)
         {
             if (isSetting)
             {
@@ -381,20 +364,20 @@ namespace ABShell
                     (sender as UserButton).image = tmp.image;
                     (sender as UserButton).path = tmp.path;
                     (sender as UserButton).isVisible = tmp.isVisible;
-                    (sender as UserButton).path = tmp.path;
+                    (sender as UserButton).SetText = tmp.SetText;
                 }
             }
             else
             {
-                Process.Start((sender as UserButton).path);
-            }
-        }
+                try
+                {
+                    Process.Start((sender as UserButton).path);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Файл не найден!");
+                }
 
-        private void buttonApp1_Click(object sender, EventArgs e)
-        {
-            if (!isSetting)
-            {
-                Process.Start((sender as ButtonApp).path);
             }
         }
     }

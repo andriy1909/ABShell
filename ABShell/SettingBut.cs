@@ -47,8 +47,8 @@ namespace ABShell
                 imgButtom.Image = button.image;
             if (button.path != null)
                 tbPath.Text = button.path;
-            if (button.name != null)
-                tbName.Text = button.name;
+            if (button.SetText != null)
+                tbName.Text = button.SetText;
         }
 
         public void setButton(int id)
@@ -77,6 +77,7 @@ namespace ABShell
                 {
                     Icon ico = Icon.ExtractAssociatedIcon(fileDialog.FileName);
                     setImage((Image)(new IconConverter().ConvertTo(ico, typeof(Image))));
+                    tbName.Text = fileDialog.SafeFileName;
                 }
                 catch (Exception error)
                 {
@@ -88,6 +89,11 @@ namespace ABShell
         public UserButton getButtonSetting()
         {
             return button;
+        }
+
+        public ProgramSetting getSetting()
+        {
+            return new ProgramSetting() { id = button.id, image = button.image, name = button.SetText, path = button.path };
         }
     }
 }

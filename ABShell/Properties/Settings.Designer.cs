@@ -46,13 +46,13 @@ namespace ABShell.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Heigth {
+        [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 8.25pt")]
+        public global::System.Drawing.Font Font {
             get {
-                return ((int)(this["Heigth"]));
+                return ((global::System.Drawing.Font)(this["Font"]));
             }
             set {
-                this["Heigth"] = value;
+                this["Font"] = value;
             }
         }
     }

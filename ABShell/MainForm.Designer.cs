@@ -36,21 +36,21 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnStandart = new System.Windows.Forms.Panel();
+            this.buttonApp2 = new ABShell.ButtonApp();
+            this.buttonApp4 = new ABShell.ButtonApp();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnPowerOff = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnTeamViewer = new ABShell.UserButton();
             this.pnContents = new System.Windows.Forms.Panel();
             this.addBut = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCopy = new System.Windows.Forms.Button();
-            this.userButton1 = new ABShell.UserButton();
             this.cbUseDisp = new ABShell.CheckBox2();
             this.cbUseShell = new ABShell.CheckBox2();
-            this.buttonApp2 = new ABShell.ButtonApp();
-            this.buttonApp1 = new ABShell.ButtonApp();
-            this.buttonApp4 = new ABShell.ButtonApp();
+            this.btnABOffice = new ABShell.UserButton();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.pnHead.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,16 +132,56 @@
             // 
             this.pnStandart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnStandart.Controls.Add(this.buttonApp2);
-            this.pnStandart.Controls.Add(this.buttonApp1);
             this.pnStandart.Controls.Add(this.buttonApp4);
             this.pnStandart.Controls.Add(this.btnSetting);
             this.pnStandart.Controls.Add(this.btnPowerOff);
             this.pnStandart.Controls.Add(this.btnRestart);
             this.pnStandart.Controls.Add(this.btnLogout);
+            this.pnStandart.Controls.Add(this.btnTeamViewer);
             this.pnStandart.Location = new System.Drawing.Point(267, 114);
             this.pnStandart.Name = "pnStandart";
             this.pnStandart.Size = new System.Drawing.Size(487, 64);
             this.pnStandart.TabIndex = 32;
+            // 
+            // buttonApp2
+            // 
+            this.buttonApp2.BackgroundImage = global::ABShell.Properties.Resources.desktop2;
+            this.buttonApp2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp2.FlatAppearance.BorderSize = 0;
+            this.buttonApp2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp2.id = 5;
+            this.buttonApp2.image = global::ABShell.Properties.Resources.desktop2;
+            this.buttonApp2.isVisible = false;
+            this.buttonApp2.Location = new System.Drawing.Point(0, 0);
+            this.buttonApp2.login = "";
+            this.buttonApp2.Name = "buttonApp2";
+            this.buttonApp2.password = "";
+            this.buttonApp2.path = "explorer";
+            this.buttonApp2.server = "";
+            this.buttonApp2.Size = new System.Drawing.Size(64, 64);
+            this.buttonApp2.TabIndex = 55;
+            this.buttonApp2.UseVisualStyleBackColor = true;
+            this.buttonApp2.Click += new System.EventHandler(this.buttonApp2_Click);
+            // 
+            // buttonApp4
+            // 
+            this.buttonApp4.BackgroundImage = global::ABShell.Properties.Resources.print;
+            this.buttonApp4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApp4.FlatAppearance.BorderSize = 0;
+            this.buttonApp4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApp4.id = 5;
+            this.buttonApp4.image = global::ABShell.Properties.Resources.print;
+            this.buttonApp4.isVisible = false;
+            this.buttonApp4.Location = new System.Drawing.Point(70, 0);
+            this.buttonApp4.login = "";
+            this.buttonApp4.Name = "buttonApp4";
+            this.buttonApp4.password = "";
+            this.buttonApp4.path = "control printers";
+            this.buttonApp4.server = "";
+            this.buttonApp4.Size = new System.Drawing.Size(64, 64);
+            this.buttonApp4.TabIndex = 50;
+            this.buttonApp4.UseVisualStyleBackColor = true;
+            this.buttonApp4.Click += new System.EventHandler(this.buttonApp4_Click);
             // 
             // btnSetting
             // 
@@ -198,6 +238,19 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // btnTeamViewer
+            // 
+            this.btnTeamViewer.id = 0;
+            this.btnTeamViewer.image = global::ABShell.Properties.Resources.TeamViewer02x128;
+            this.btnTeamViewer.isVisible = false;
+            this.btnTeamViewer.Location = new System.Drawing.Point(137, -3);
+            this.btnTeamViewer.Name = "btnTeamViewer";
+            this.btnTeamViewer.path = "";
+            this.btnTeamViewer.SetText = "";
+            this.btnTeamViewer.Size = new System.Drawing.Size(75, 67);
+            this.btnTeamViewer.TabIndex = 53;
+            this.btnTeamViewer.Click += new System.EventHandler(this.standartButt_Click);
+            // 
             // pnContents
             // 
             this.pnContents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -210,7 +263,7 @@
             // 
             // addBut
             // 
-            this.addBut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addBut.BackgroundImage")));
+            this.addBut.BackgroundImage = global::ABShell.Properties.Resources.add1__41512;
             this.addBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.addBut.FlatAppearance.BorderSize = 0;
             this.addBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -220,6 +273,7 @@
             this.addBut.Size = new System.Drawing.Size(51, 51);
             this.addBut.TabIndex = 47;
             this.addBut.UseVisualStyleBackColor = true;
+            this.addBut.Visible = false;
             this.addBut.Click += new System.EventHandler(this.addBut_Click);
             // 
             // label3
@@ -244,34 +298,6 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Заменять Windows Shell";
             // 
-            // btnCopy
-            // 
-            this.btnCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.BackgroundImage")));
-            this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCopy.FlatAppearance.BorderSize = 0;
-            this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCopy.Location = new System.Drawing.Point(697, 502);
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(51, 51);
-            this.btnCopy.TabIndex = 56;
-            this.btnCopy.UseVisualStyleBackColor = true;
-            this.btnCopy.Visible = false;
-            // 
-            // userButton1
-            // 
-            this.userButton1.id = 0;
-            this.userButton1.image = global::ABShell.Properties.Resources.aboffice;
-            this.userButton1.isVisible = false;
-            this.userButton1.Location = new System.Drawing.Point(0, 179);
-            this.userButton1.name = "АБ ОФИС";
-            this.userButton1.Name = "userButton1";
-            this.userButton1.path = "";
-            this.userButton1.SetText = "АБ ОФИС";
-            this.userButton1.Size = new System.Drawing.Size(75, 100);
-            this.userButton1.TabIndex = 52;
-            this.userButton1.Click += new System.EventHandler(this.userButton1_Click);
-            // 
             // cbUseDisp
             // 
             this.cbUseDisp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -294,65 +320,32 @@
             this.cbUseShell.TabIndex = 52;
             this.cbUseShell.Click += new System.EventHandler(this.cbUseShell_Click);
             // 
-            // buttonApp2
+            // btnABOffice
             // 
-            this.buttonApp2.BackgroundImage = global::ABShell.Properties.Resources.desktop2;
-            this.buttonApp2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonApp2.FlatAppearance.BorderSize = 0;
-            this.buttonApp2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonApp2.id = 5;
-            this.buttonApp2.image = global::ABShell.Properties.Resources.desktop2;
-            this.buttonApp2.isVisible = false;
-            this.buttonApp2.Location = new System.Drawing.Point(0, 0);
-            this.buttonApp2.login = "";
-            this.buttonApp2.Name = "buttonApp2";
-            this.buttonApp2.password = "";
-            this.buttonApp2.path = "explorer";
-            this.buttonApp2.server = "";
-            this.buttonApp2.Size = new System.Drawing.Size(64, 64);
-            this.buttonApp2.TabIndex = 55;
-            this.buttonApp2.UseVisualStyleBackColor = true;
-            this.buttonApp2.Click += new System.EventHandler(this.buttonApp2_Click);
+            this.btnABOffice.id = 0;
+            this.btnABOffice.image = global::ABShell.Properties.Resources.aboffice;
+            this.btnABOffice.isVisible = false;
+            this.btnABOffice.Location = new System.Drawing.Point(0, 179);
+            this.btnABOffice.Name = "btnABOffice";
+            this.btnABOffice.path = "C:\\office4\\client\\O4Client.exe";
+            this.btnABOffice.SetText = "АБ ОФИС";
+            this.btnABOffice.Size = new System.Drawing.Size(75, 100);
+            this.btnABOffice.TabIndex = 52;
+            this.btnABOffice.Click += new System.EventHandler(this.standartButt_Click);
             // 
-            // buttonApp1
+            // btnCopy
             // 
-            this.buttonApp1.BackgroundImage = global::ABShell.Properties.Resources.TeamViewer02x128;
-            this.buttonApp1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonApp1.FlatAppearance.BorderSize = 0;
-            this.buttonApp1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonApp1.id = 4;
-            this.buttonApp1.image = global::ABShell.Properties.Resources.TeamViewer02x128;
-            this.buttonApp1.isVisible = false;
-            this.buttonApp1.Location = new System.Drawing.Point(140, 0);
-            this.buttonApp1.login = "";
-            this.buttonApp1.Name = "buttonApp1";
-            this.buttonApp1.password = "";
-            this.buttonApp1.path = "";
-            this.buttonApp1.server = "";
-            this.buttonApp1.Size = new System.Drawing.Size(64, 64);
-            this.buttonApp1.TabIndex = 54;
-            this.buttonApp1.UseVisualStyleBackColor = true;
-            this.buttonApp1.Click += new System.EventHandler(this.buttonApp1_Click);
-            // 
-            // buttonApp4
-            // 
-            this.buttonApp4.BackgroundImage = global::ABShell.Properties.Resources.print;
-            this.buttonApp4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonApp4.FlatAppearance.BorderSize = 0;
-            this.buttonApp4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonApp4.id = 5;
-            this.buttonApp4.image = global::ABShell.Properties.Resources.print;
-            this.buttonApp4.isVisible = false;
-            this.buttonApp4.Location = new System.Drawing.Point(70, 0);
-            this.buttonApp4.login = "";
-            this.buttonApp4.Name = "buttonApp4";
-            this.buttonApp4.password = "";
-            this.buttonApp4.path = "control printers";
-            this.buttonApp4.server = "";
-            this.buttonApp4.Size = new System.Drawing.Size(64, 64);
-            this.buttonApp4.TabIndex = 50;
-            this.buttonApp4.UseVisualStyleBackColor = true;
-            this.buttonApp4.Click += new System.EventHandler(this.buttonApp4_Click);
+            this.btnCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.BackgroundImage")));
+            this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCopy.FlatAppearance.BorderSize = 0;
+            this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCopy.Location = new System.Drawing.Point(697, 502);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(51, 51);
+            this.btnCopy.TabIndex = 56;
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Visible = false;
             // 
             // MainForm
             // 
@@ -361,7 +354,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
             this.ClientSize = new System.Drawing.Size(754, 351);
             this.ControlBox = false;
-            this.Controls.Add(this.userButton1);
+            this.Controls.Add(this.btnABOffice);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -407,10 +400,10 @@
         private System.Windows.Forms.Label label1;
         private CheckBox2 cbUseDisp;
         private CheckBox2 cbUseShell;
-        private UserButton userButton1;
+        private UserButton btnABOffice;
         private System.Windows.Forms.Button btnCopy;
         private ButtonApp buttonApp2;
-        private ButtonApp buttonApp1;
+        private UserButton btnTeamViewer;
     }
 }
 

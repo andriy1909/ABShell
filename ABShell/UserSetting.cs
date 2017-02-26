@@ -15,6 +15,7 @@ namespace ABShell
         public string path;
         public Image image;
         public bool isVisible;
+        public string name;
 
         public ProgramSetting()
         {
@@ -26,10 +27,11 @@ namespace ABShell
             isVisible = !isVisible;
         }
 
-        public void setSetting(ButtonApp button)
+        public void setSetting(UserButton button)
         {
             id = button.id;
             path = button.path;
+            name = button.SetText;
             image = button.image;
             isVisible = button.isVisible;
         }
@@ -39,6 +41,7 @@ namespace ABShell
             button.id = id;
             button.path = path;
             button.image = image;
+            button.SetText = name;
             button.isVisible = isVisible;
             return button;
         }
