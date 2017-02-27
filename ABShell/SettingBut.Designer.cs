@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingBut));
             this.btnOpenImg = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOpenPath = new System.Windows.Forms.Button();
             this.tbPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,7 +40,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnOpenPath = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.imgButtom = new System.Windows.Forms.PictureBox();
             this.btnVis = new System.Windows.Forms.Button();
@@ -71,6 +71,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(356, 52);
             this.panel2.TabIndex = 17;
+            // 
+            // btnOpenPath
+            // 
+            this.btnOpenPath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenPath.BackgroundImage")));
+            this.btnOpenPath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOpenPath.FlatAppearance.BorderSize = 0;
+            this.btnOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenPath.Location = new System.Drawing.Point(297, 22);
+            this.btnOpenPath.Name = "btnOpenPath";
+            this.btnOpenPath.Size = new System.Drawing.Size(27, 29);
+            this.btnOpenPath.TabIndex = 14;
+            this.btnOpenPath.UseVisualStyleBackColor = true;
+            this.btnOpenPath.Click += new System.EventHandler(this.btnOpenPath_Click);
             // 
             // tbPath
             // 
@@ -159,19 +172,6 @@
             this.button1.TabIndex = 19;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btnOpenPath
-            // 
-            this.btnOpenPath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenPath.BackgroundImage")));
-            this.btnOpenPath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOpenPath.FlatAppearance.BorderSize = 0;
-            this.btnOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenPath.Location = new System.Drawing.Point(297, 22);
-            this.btnOpenPath.Name = "btnOpenPath";
-            this.btnOpenPath.Size = new System.Drawing.Size(27, 29);
-            this.btnOpenPath.TabIndex = 14;
-            this.btnOpenPath.UseVisualStyleBackColor = true;
-            this.btnOpenPath.Click += new System.EventHandler(this.btnOpenPath_Click);
-            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -232,6 +232,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingBut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

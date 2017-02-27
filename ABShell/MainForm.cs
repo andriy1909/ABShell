@@ -23,6 +23,7 @@ namespace ABShell
     {
         private bool isSetting = false;
         private List<ProgramSetting> programsList;
+        bool isShutDown = false;
         int min = 320;
         int max = 390;
 
@@ -124,11 +125,13 @@ namespace ABShell
         private void btnPowerOff_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
+            isShutDown = true;
             power.halt(false, false);
         }
         private void btnRestart_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
+            isShutDown = true;
             power.halt(true, false);
         }
         private void btnLogout_Click(object sender, EventArgs e)
@@ -214,7 +217,7 @@ namespace ABShell
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
+            e.Cancel = isShutDown;
         }
 
         public void update()
@@ -391,6 +394,11 @@ namespace ABShell
                 }
 
             }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
         }
     }
 }
