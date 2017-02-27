@@ -16,6 +16,7 @@ using System.Configuration;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
+using System.Security.AccessControl;
 
 namespace ABShell
 {
@@ -41,7 +42,7 @@ namespace ABShell
             richTextBox1.Text = Properties.Settings.Default.Text;
             richTextBox1.Font = Properties.Settings.Default.Font;
             cbUseShell.Checked = !(getShell() == "explorer.exe" || getShell().ToLower() == "explorer");
-            cbUseDisp.Checked = getDispVisible() == "1";
+            cbUseDisp.Checked = getDisp() == "1";
             
             MaximumSize = new Size(2000, min);
             MinimumSize = new Size(505, min);
@@ -122,6 +123,71 @@ namespace ABShell
             return (string)hkWinlogon.GetValue("Shell", "");
         }
 
+        public void setDisp(bool value)
+        {
+            RegistryKey hklm = Registry.CurrentUser;
+            RegistryKey hkSoftware = hklm.OpenSubKey("Software");
+            RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
+            RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows");
+            RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
+            RegistryKey hkSystem = hkCurrentVersion.OpenSubKey("Policies");
+            RegistryKey hkWinlogon = hkSystem.OpenSubKey("System", true);
+            string keyValueInt = "-1";
+            if (!value)
+                keyValueInt = "1";
+            hkWinlogon.SetValue("DisableTaskMgr", keyValueInt);
+        }
+        public string getDisp()
+        {
+            RegistryKey hklm = Registry.CurrentUser;
+            RegistryKey hkSoftware = hklm.OpenSubKey("Software");
+            RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
+            RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows");
+            RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
+            RegistryKey hkSystem = hkCurrentVersion.OpenSubKey("Policies");
+            RegistryKey hkWinlogon = hkSystem.OpenSubKey("System", false);
+            return (string)hkWinlogon.GetValue("DisableTaskMgr", "-1");
+        }
+        //отключить Диспетчер задач
+      /*  public void setDispVisible(bool value)
+        {
+            RegistryKey regkey;
+            string keyValueInt = "-1";
+            if (!value)
+                keyValueInt = "1";
+            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+
+            try
+            {
+                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
+                regkey.SetValue("DisableTaskMgr", keyValueInt);
+                regkey.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public string getDispVisible()
+        {
+            RegistryKey regkey;
+            string keyValueInt = "1";
+            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+
+            try
+            {
+                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
+                // regkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(subKey);
+                keyValueInt = (string)regkey.GetValue("DisableTaskMgr");
+                regkey.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return keyValueInt;
+        }
+        */
         private void btnPowerOff_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
@@ -177,7 +243,7 @@ namespace ABShell
         }
 
         //отключить Диспетчер задач
-        public void setDispVisible(bool value)
+    /*    public void setDispVisible(bool value)
         {
             RegistryKey regkey;
             string keyValueInt = "-1";
@@ -205,6 +271,7 @@ namespace ABShell
             try
             {
                 regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
+               // regkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(subKey);
                 keyValueInt = (string)regkey.GetValue("DisableTaskMgr");
                 regkey.Close();
             }
@@ -213,11 +280,11 @@ namespace ABShell
                 MessageBox.Show(ex.Message);
             }
             return keyValueInt;
-        }
+        }*/
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = isShutDown;
+            e.Cancel = !isShutDown;
         }
 
         public void update()
@@ -305,9 +372,9 @@ namespace ABShell
         private void cbUseDisp_Click(object sender, EventArgs e)
         {
             if (!cbUseDisp.Checked)
-                setDispVisible(true);
+                setDisp(true);
             else
-                setDispVisible(false);
+                setDisp(false);
         }
 
         private void addBut_Click(object sender, EventArgs e)
