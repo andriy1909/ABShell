@@ -45,3 +45,4 @@ D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.csproj.GenerateResource.Cache
 D:\WorkSpace\ABShell\ABShell\obj\Debug\Integra.exe
 D:\WorkSpace\ABShell\ABShell\obj\Debug\Integra.pdb
 D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.csprojResolveAssemblyReference.cache
+D:\WorkSpace\ABShell\ABShell\obj\Debug\ABShell.CheckBox3.resources

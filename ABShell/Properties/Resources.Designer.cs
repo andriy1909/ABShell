@@ -223,6 +223,16 @@ namespace ABShell.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edittrash_7432 {
+            get {
+                object obj = ResourceManager.GetObject("edittrash_7432", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fonts_4265 {
             get {
                 object obj = ResourceManager.GetObject("fonts_4265", resourceCulture);
@@ -316,6 +326,16 @@ namespace ABShell.Properties {
         internal static System.Drawing.Bitmap plainicon_com_49216_128px_2dd {
             get {
                 object obj = ResourceManager.GetObject("plainicon.com-49216-128px-2dd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plainicon2 {
+            get {
+                object obj = ResourceManager.GetObject("plainicon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

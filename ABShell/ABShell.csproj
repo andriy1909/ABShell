@@ -98,6 +98,12 @@
     <Compile Include="CheckBox2.Designer.cs">
       <DependentUpon>CheckBox2.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckBox3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckBox3.Designer.cs">
+      <DependentUpon>CheckBox3.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckBox2.resx">
       <DependentUpon>CheckBox2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckBox3.resx">
+      <DependentUpon>CheckBox3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -296,6 +305,8 @@
     <None Include="Resources\add.bmp" />
     <None Include="Resourse\add1-_4151.png" />
     <None Include="Resourse\add1-_41512.png" />
+    <None Include="Resourse\edittrash_7432.png" />
+    <None Include="Resourse\plainicon2.png" />
     <Content Include="shellscript_3969.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

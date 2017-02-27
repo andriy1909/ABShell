@@ -55,5 +55,17 @@ namespace ABShell.Properties {
                 this["Font"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Text {
+            get {
+                return ((string)(this["Text"]));
+            }
+            set {
+                this["Text"] = value;
+            }
+        }
     }
 }

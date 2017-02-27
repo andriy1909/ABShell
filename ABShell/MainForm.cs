@@ -36,10 +36,12 @@ namespace ABShell
         {
             Properties.Settings.Default.Reload();
             Width = Properties.Settings.Default.Width;
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+            richTextBox1.Text = Properties.Settings.Default.Text;
             richTextBox1.Font = Properties.Settings.Default.Font;
             cbUseShell.Checked = !(getShell() == "explorer.exe" || getShell().ToLower() == "explorer");
             cbUseDisp.Checked = getDispVisible() == "1";
-            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+            
             MaximumSize = new Size(2000, min);
             MinimumSize = new Size(505, min);
 
@@ -86,7 +88,7 @@ namespace ABShell
                 programsList = (List<ProgramSetting>)formatter.Deserialize(fStream);
             }
             btnABOffice = loadButton(programsList.Find(x => x.id == 0), btnABOffice);
-            btnTeamViewer = loadButton(programsList.Find(x => x.id == 1), btnABOffice);
+            btnTeamViewer = loadButton(programsList.Find(x => x.id == 1), btnTeamViewer);
         }
 
         public UserButton loadButton(ProgramSetting setting, UserButton button)
@@ -161,6 +163,7 @@ namespace ABShell
                 richTextBox1.BorderStyle = BorderStyle.None;
                 Properties.Settings.Default.Width = Width;
                 Properties.Settings.Default.Font = richTextBox1.Font;
+                Properties.Settings.Default.Text = richTextBox1.Text;
                 Properties.Settings.Default.Save();
                 saveSetting();
             }
@@ -254,13 +257,21 @@ namespace ABShell
             {
                 SettingBut form = new SettingBut();
                 form.setButton(sender as UserButton);
-                if (form.ShowDialog() == DialogResult.OK)
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.Abort)
                 {
                     UserButton tmp = form.getButtonSetting();
-                    (sender as UserButton).image = tmp.image;
-                    (sender as UserButton).path = tmp.path;
-                    (sender as UserButton).isVisible = tmp.isVisible;
-                    (sender as UserButton).SetText = tmp.path;
+                    programsList.RemoveAll(x => x.id == tmp.id);
+                    update();
+                }
+                else
+                if (dr == DialogResult.OK)
+                {
+                    UserButton tmp = form.getButtonSetting();
+                    programsList.Find(x => x.id == tmp.id).image = tmp.image;
+                    programsList.Find(x => x.id == tmp.id).path = tmp.path;
+                    programsList.Find(x => x.id == tmp.id).isVisible = tmp.isVisible;
+                    programsList.Find(x => x.id == tmp.id).name = tmp.SetText;
                     update();
                 }
             }
@@ -275,12 +286,13 @@ namespace ABShell
             if (cbUseShell.Checked)
                 setShell(Application.ExecutablePath);
             else
-                setShell("extlorer.exe");
+                setShell("explorer.exe");
         }
 
         private void btnFont_Click(object sender, EventArgs e)
         {
             FontDialog font = new FontDialog();
+            font.Font = richTextBox1.Font;
             if (font.ShowDialog() == DialogResult.OK)
             {
                 richTextBox1.Font = font.Font;

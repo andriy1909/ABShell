@@ -32,7 +32,7 @@ namespace ABShell
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "1")
+            if (textBox1.Text == "2056")
             {
                 DialogResult = DialogResult.OK;
                 Close();
