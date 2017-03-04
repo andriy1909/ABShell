@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Autorization));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -53,7 +55,7 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = global::ABShell.Properties.Resources.button_ok_1908;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -66,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::ABShell.Properties.Resources.button_cancel_6758;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -98,7 +100,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Red;
+            this.panel2.BackColor = System.Drawing.Color.Brown;
             this.panel2.Location = new System.Drawing.Point(64, 8);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(121, 29);

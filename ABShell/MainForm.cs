@@ -37,7 +37,6 @@ namespace ABShell
         private void Form1_Load(object sender, EventArgs e)
         {
             Properties.Settings.Default.Reload();
-            Width = Properties.Settings.Default.Width;
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
             richTextBox1.Text = Properties.Settings.Default.Text;
             richTextBox1.Font = Properties.Settings.Default.Font;
@@ -46,8 +45,8 @@ namespace ABShell
             
             MaximumSize = new Size(2000, min);
             MinimumSize = new Size(505, min);
-
-            if (File.Exists(Application.StartupPath + "\\ABShellSetting.dat"))
+            
+            if (File.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat"))
                 loadSetting();
             else
             {
@@ -77,7 +76,7 @@ namespace ABShell
         {
             //Сохраняем в двоичном формате
             BinaryFormatter formatter = new BinaryFormatter();
-            using (var fStream = new FileStream("./ABShellSetting.dat", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (var fStream = new FileStream(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 formatter.Serialize(fStream, programsList);
             }
@@ -85,7 +84,7 @@ namespace ABShell
         public void loadSetting()
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            using (var fStream = File.OpenRead("./ABShellSetting.dat"))
+            using (var fStream = File.OpenRead(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat"))
             {
                 programsList = (List<ProgramSetting>)formatter.Deserialize(fStream);
             }
@@ -135,10 +134,20 @@ namespace ABShell
             string keyValueInt = "-1";
             if (!value)
                 keyValueInt = "1";
-            hkWinlogon.SetValue("DisableTaskMgr", keyValueInt);
+            try
+            {
+                hkWinlogon.SetValue("DisableTaskMgr", keyValueInt);
+            }
+            catch (Exception)
+            {
+                hkWinlogon.DeleteValue("DisableTaskMgr");
+                hkWinlogon.SetValue("DisableTaskMgr", keyValueInt);
+            }
+            
         }
         public string getDisp()
         {
+            string value="";
             RegistryKey hklm = Registry.CurrentUser;
             RegistryKey hkSoftware = hklm.OpenSubKey("Software");
             RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
@@ -146,48 +155,17 @@ namespace ABShell
             RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
             RegistryKey hkSystem = hkCurrentVersion.OpenSubKey("Policies");
             RegistryKey hkWinlogon = hkSystem.OpenSubKey("System", false);
+            try
+            {
+                value = (string)hkWinlogon.GetValue("DisableTaskMgr", "-1");
+            }
+            catch (Exception)
+            {
+                return "-1";
+            }
             return (string)hkWinlogon.GetValue("DisableTaskMgr", "-1");
         }
-        //отключить Диспетчер задач
-      /*  public void setDispVisible(bool value)
-        {
-            RegistryKey regkey;
-            string keyValueInt = "-1";
-            if (!value)
-                keyValueInt = "1";
-            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
-
-            try
-            {
-                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
-                regkey.SetValue("DisableTaskMgr", keyValueInt);
-                regkey.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        public string getDispVisible()
-        {
-            RegistryKey regkey;
-            string keyValueInt = "1";
-            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
-
-            try
-            {
-                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
-                // regkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(subKey);
-                keyValueInt = (string)regkey.GetValue("DisableTaskMgr");
-                regkey.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return keyValueInt;
-        }
-        */
+       
         private void btnPowerOff_Click(object sender, EventArgs e)
         {
             Reboot power = new Reboot();
@@ -228,9 +206,8 @@ namespace ABShell
             {
                 MaximumSize = new Size(2000, min);
                 MinimumSize = new Size(505, min);
-                richTextBox1.BackColor = Color.FromArgb(146, 188, 235);
+                richTextBox1.BackColor = Control.DefaultBackColor;
                 richTextBox1.BorderStyle = BorderStyle.None;
-                Properties.Settings.Default.Width = Width;
                 Properties.Settings.Default.Font = richTextBox1.Font;
                 Properties.Settings.Default.Text = richTextBox1.Text;
                 Properties.Settings.Default.Save();
@@ -238,58 +215,22 @@ namespace ABShell
             }
             addBut.Visible = isSetting;
             btnFont.Visible = isSetting;
+            ControlBox = isSetting;
+            btnClearSetting.Visible = isSetting;
+            label4.Visible = isSetting;
             richTextBox1.ReadOnly = !isSetting;
             update();
         }
 
-        //отключить Диспетчер задач
-    /*    public void setDispVisible(bool value)
-        {
-            RegistryKey regkey;
-            string keyValueInt = "-1";
-            if (!value)
-                keyValueInt = "1";
-            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
-
-            try
-            {
-                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
-                regkey.SetValue("DisableTaskMgr", keyValueInt);
-                regkey.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        public string getDispVisible()
-        {
-            RegistryKey regkey;
-            string keyValueInt = "1";
-            string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
-
-            try
-            {
-                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey);
-               // regkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(subKey);
-                keyValueInt = (string)regkey.GetValue("DisableTaskMgr");
-                regkey.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return keyValueInt;
-        }*/
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = !isShutDown;
+            e.Cancel = !(isShutDown || isSetting);
         }
 
         public void update()
         {
             pnContents.Controls.Clear();
+            
             int i = 0;
             foreach (ProgramSetting item in programsList)
             {
@@ -312,7 +253,7 @@ namespace ABShell
             add.Height = 51;
             add.Top = 20;
             add.Left = i * 75 + 14;
-            add.BackgroundImage = Properties.Resources.add1__41512;
+            add.BackgroundImage = Properties.Resources.add_1078;
             add.BackgroundImageLayout = ImageLayout.Stretch;
             add.FlatStyle = FlatStyle.Flat;
             add.FlatAppearance.BorderSize = 0;
@@ -412,19 +353,7 @@ namespace ABShell
 
         private void buttonApp4_Click(object sender, EventArgs e)
         {
-            if (isSetting)
-            {
-                SettingBut form = new SettingBut();
-                form.setButton(sender as UserButton);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    UserButton tmp = form.getButtonSetting();
-                    (sender as UserButton).image = tmp.image;
-                    (sender as UserButton).path = tmp.path;
-                    (sender as UserButton).isVisible = tmp.isVisible;
-                }
-            }
-            else
+            if (!isSetting)
             {
                 Autorization form = new Autorization();
                 if (form.ShowDialog() == DialogResult.OK)
@@ -466,6 +395,45 @@ namespace ABShell
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+        }
+
+        private void btnABOffice_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonApp1_Click(object sender, EventArgs e)
+        {
+            programsList.Clear();
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat"))
+                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat");
+            Properties.Settings.Default.Reset();
+            richTextBox1.Text = Properties.Settings.Default.Text;
+            richTextBox1.Font = Properties.Settings.Default.Font;
+            cbUseShell.Checked = false;
+            setShell("explorer.exe");
+            cbUseDisp.Checked = false;
+            setDisp(true);
+            programsList.Add(new ProgramSetting()
+            {
+                id = 0,
+                image = Properties.Resources.aboffice,
+                path = "C:\\office4\\client\\O4Client.exe",
+                name = "АБ ОФИС",
+                isVisible = true
+            });
+            programsList.Add(new ProgramSetting()
+            {
+                id = 1,
+                image = Properties.Resources.TeamViewer,
+                path = Application.StartupPath + "\\TeamViewer.exe",
+                name = btnTeamViewer.SetText,
+                isVisible = true
+            });
+            btnABOffice = loadButton(programsList.Find(x => x.id == 0), btnABOffice);
+            btnTeamViewer = loadButton(programsList.Find(x => x.id == 1), btnTeamViewer);
+            btnTeamViewer.path = Application.StartupPath + "\\TeamViewer.exe";
+            update();
         }
     }
 }

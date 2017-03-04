@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingBut));
             this.btnOpenImg = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnOpenPath = new System.Windows.Forms.Button();
             this.tbPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnVis = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnOpenPath = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.imgButtom = new System.Windows.Forms.PictureBox();
-            this.btnVis = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgButtom)).BeginInit();
@@ -71,19 +71,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(356, 52);
             this.panel2.TabIndex = 17;
-            // 
-            // btnOpenPath
-            // 
-            this.btnOpenPath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenPath.BackgroundImage")));
-            this.btnOpenPath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOpenPath.FlatAppearance.BorderSize = 0;
-            this.btnOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenPath.Location = new System.Drawing.Point(297, 22);
-            this.btnOpenPath.Name = "btnOpenPath";
-            this.btnOpenPath.Size = new System.Drawing.Size(27, 29);
-            this.btnOpenPath.TabIndex = 14;
-            this.btnOpenPath.UseVisualStyleBackColor = true;
-            this.btnOpenPath.Click += new System.EventHandler(this.btnOpenPath_Click);
             // 
             // tbPath
             // 
@@ -133,7 +120,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackgroundImage = global::ABShell.Properties.Resources.button_cancel_6758;
+            this.btnCancel.BackgroundImage = global::ABShell.Properties.Resources._27_128;
             this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatAppearance.BorderSize = 0;
@@ -143,6 +130,20 @@
             this.btnCancel.Size = new System.Drawing.Size(43, 47);
             this.btnCancel.TabIndex = 16;
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnVis
+            // 
+            this.btnVis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVis.BackgroundImage = global::ABShell.Properties.Resources.plainicon_com_49216_128px_2dd;
+            this.btnVis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVis.FlatAppearance.BorderSize = 0;
+            this.btnVis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVis.Location = new System.Drawing.Point(52, 124);
+            this.btnVis.Name = "btnVis";
+            this.btnVis.Size = new System.Drawing.Size(43, 47);
+            this.btnVis.TabIndex = 21;
+            this.btnVis.UseVisualStyleBackColor = true;
+            this.btnVis.Click += new System.EventHandler(this.btnVis_Click);
             // 
             // button2
             // 
@@ -161,7 +162,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = global::ABShell.Properties.Resources.edittrash_7432;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -172,10 +173,23 @@
             this.button1.TabIndex = 19;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // btnOpenPath
+            // 
+            this.btnOpenPath.BackgroundImage = global::ABShell.Properties.Resources.experimentsfolder_8215;
+            this.btnOpenPath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOpenPath.FlatAppearance.BorderSize = 0;
+            this.btnOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenPath.Location = new System.Drawing.Point(297, 22);
+            this.btnOpenPath.Name = "btnOpenPath";
+            this.btnOpenPath.Size = new System.Drawing.Size(27, 29);
+            this.btnOpenPath.TabIndex = 14;
+            this.btnOpenPath.UseVisualStyleBackColor = true;
+            this.btnOpenPath.Click += new System.EventHandler(this.btnOpenPath_Click);
+            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackgroundImage = global::ABShell.Properties.Resources.button_ok_1908;
+            this.btnSave.BackgroundImage = global::ABShell.Properties.Resources.accept_icon_47801;
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -189,7 +203,7 @@
             // imgButtom
             // 
             this.imgButtom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgButtom.Image = global::ABShell.Properties.Resources.program_3090;
+            this.imgButtom.Image = global::ABShell.Properties.Resources.box_grey_1252;
             this.imgButtom.Location = new System.Drawing.Point(17, 18);
             this.imgButtom.Name = "imgButtom";
             this.imgButtom.Size = new System.Drawing.Size(72, 72);
@@ -198,25 +212,11 @@
             this.imgButtom.TabStop = false;
             this.imgButtom.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnVis
-            // 
-            this.btnVis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVis.BackgroundImage = global::ABShell.Properties.Resources.plainicon_com_49216_128px_2dd;
-            this.btnVis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVis.FlatAppearance.BorderSize = 0;
-            this.btnVis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVis.Location = new System.Drawing.Point(52, 124);
-            this.btnVis.Name = "btnVis";
-            this.btnVis.Size = new System.Drawing.Size(43, 47);
-            this.btnVis.TabIndex = 21;
-            this.btnVis.UseVisualStyleBackColor = true;
-            this.btnVis.Click += new System.EventHandler(this.btnVis_Click);
-            // 
             // SettingBut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(475, 182);
             this.Controls.Add(this.btnVis);

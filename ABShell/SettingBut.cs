@@ -51,7 +51,11 @@ namespace ABShell
                 tbName.Text = button.SetText;
             btnVis.Visible = !button.isVisible;
             if (button.id == 0 || button.id == 1)
-                button1.Enabled = false;
+            {
+                button1.Visible = false;
+                btnVis.Visible = false;
+                button2.Visible = false;
+            }
         }
 
         public void setButton(int id)
@@ -97,7 +101,7 @@ namespace ABShell
         public ProgramSetting getSetting()
         {
             return new ProgramSetting() { id = button.id, image = button.image, name = button.SetText,
-                path = button.path,isVisible=btnVis.Visible };
+                path = button.path,isVisible=!btnVis.Visible };
         }
 
         private void btnVis_Click(object sender, EventArgs e)
