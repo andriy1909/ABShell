@@ -135,8 +135,9 @@ namespace ABShell
             RegistryKey hkMicrosoft = hkSoftware.OpenSubKey("Microsoft");
             RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows");
             RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
-            RegistryKey hkSystem = hkCurrentVersion.OpenSubKey("Policies");
-            RegistryKey hkWinlogon = hkSystem.OpenSubKey("System", true);
+            RegistryKey hkSystem = hkCurrentVersion.OpenSubKey("Policies",true);
+            RegistryKey hkWinlogon = hkSystem.CreateSubKey("System");
+            
             string keyValueInt = "-1";
             if (!value)
                 keyValueInt = "1";
@@ -144,9 +145,9 @@ namespace ABShell
             {
                 hkWinlogon.SetValue("DisableTaskMgr", keyValueInt);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                hkWinlogon.DeleteValue("DisableTaskMgr");
+                    hkWinlogon.DeleteValue("DisableTaskMgr");
                 hkWinlogon.SetValue("DisableTaskMgr", keyValueInt);
             }
             
@@ -160,7 +161,7 @@ namespace ABShell
             RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows");
             RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
             RegistryKey hkSystem = hkCurrentVersion.OpenSubKey("Policies");
-            RegistryKey hkWinlogon = hkSystem.OpenSubKey("System", false);
+            RegistryKey hkWinlogon = hkSystem.OpenSubKey("System", true);
             try
             {
                 value = (string)hkWinlogon.GetValue("DisableTaskMgr", "-1");
