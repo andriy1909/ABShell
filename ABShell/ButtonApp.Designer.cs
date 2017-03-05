@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ButtonApp
+            // 
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ResumeLayout(false);
+
         }
 
         #endregion

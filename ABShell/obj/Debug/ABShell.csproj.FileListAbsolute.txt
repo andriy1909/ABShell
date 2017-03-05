@@ -80,3 +80,4 @@ D:\WorkSpace\Integra\ABShell\bin\Debug\Integra.exe
 D:\WorkSpace\Integra\ABShell\bin\Debug\Integra.pdb
 D:\WorkSpace\Integra\ABShell\obj\Debug\ABShell.Autorization.resources
 D:\WorkSpace\Integra\ABShell\obj\Debug\ABShell.CheckBox3.resources
+D:\WorkSpace\Integra\ABShell\obj\Debug\ABShell.ButtonApp.resources

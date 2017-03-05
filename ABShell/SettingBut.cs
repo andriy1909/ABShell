@@ -50,12 +50,29 @@ namespace ABShell
             if (button.SetText != null)
                 tbName.Text = button.SetText;
             btnVis.Visible = !button.isVisible;
-            if (button.id == 0 || button.id == 1)
+            if (button.id == 95 || button.id == 100)
             {
                 button1.Visible = false;
                 btnVis.Visible = false;
                 button2.Visible = false;
             }
+        }
+
+        public void setButton(ButtonApp button)
+        {
+            this.button.id = button.id;
+            this.button.image = button.image;
+            this.button.path = button.path;
+            if (button.image != null)
+                imgButtom.Image = button.image;
+            if (button.path != null)
+                tbPath.Text = button.path;
+            tbName.Text = "TeamViewer";
+            button1.Visible = false;
+            btnVis.Visible = false;
+            button2.Visible = false;
+            imgButtom.Enabled = false;
+            btnOpenImg.Visible = false;
         }
 
         public void setButton(int id)

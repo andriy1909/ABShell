@@ -52,13 +52,13 @@
             this.button.id = 5;
             this.button.image = null;
             this.button.isVisible = false;
-            this.button.Location = new System.Drawing.Point(0, 0);
+            this.button.Location = new System.Drawing.Point(3, 3);
             this.button.login = "";
             this.button.Name = "button";
             this.button.password = "";
             this.button.path = "explorer";
             this.button.server = "";
-            this.button.Size = new System.Drawing.Size(70, 70);
+            this.button.Size = new System.Drawing.Size(64, 64);
             this.button.TabIndex = 56;
             this.button.UseVisualStyleBackColor = true;
             this.button.Click += new System.EventHandler(this.button_Click);

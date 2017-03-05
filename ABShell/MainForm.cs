@@ -25,8 +25,8 @@ namespace ABShell
         private bool isSetting = false;
         private List<ProgramSetting> programsList;
         bool isShutDown = false;
-        int min = 320;
-        int max = 390;
+        int min = 374;
+        int max = 434;
 
         public MainForm()
         {
@@ -42,54 +42,60 @@ namespace ABShell
             richTextBox1.Font = Properties.Settings.Default.Font;
             cbUseShell.Checked = !(getShell() == "explorer.exe" || getShell().ToLower() == "explorer");
             cbUseDisp.Checked = getDisp() == "1";
+
+              loadSetting();
             
-            MaximumSize = new Size(2000, min);
-            MinimumSize = new Size(505, min);
-            
-            if (File.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat"))
-                loadSetting();
-            else
-            {
-                programsList.Add(new ProgramSetting()
-                {
-                    id = 0,
-                    image = btnABOffice.image,
-                    path = btnABOffice.path,
-                    name = btnABOffice.SetText,
-                    isVisible = true
-            });
-                programsList.Add(new ProgramSetting()
-                {
-                    id = 1,
-                    image = btnTeamViewer.image,
-                    path = Application.StartupPath + "\\TeamViewer.exe",
-                    name = btnTeamViewer.SetText,
-                    isVisible = true
-                });
-                btnTeamViewer.path = Application.StartupPath + "\\TeamViewer.exe";
-            }
             update();
-            Height = min;
+            ToolTip hint = new ToolTip();
+            hint.SetToolTip(btnPowerOff, "Выключить компьютер");
+            hint.SetToolTip(btnRestart, "Перезагрузить компьютер");
+            hint.SetToolTip(btnLogout, "Сменить пользователя");
+            hint.SetToolTip(btnTeamViewer, "TeamViewer");
+            hint.SetToolTip(btnSetting, "Настройки");
+            hint.SetToolTip(btnDescktop, "Показать рабочий стол");
+            hint.SetToolTip(btnPrinters, "Настройки принтеров");
+            hint.SetToolTip(btnFont, "Изменить шрифт");
         }
 
         public void saveSetting()
         {
             //Сохраняем в двоичном формате
             BinaryFormatter formatter = new BinaryFormatter();
-            using (var fStream = new FileStream(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (var fStream = new FileStream(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\IntegraSetting.dat", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 formatter.Serialize(fStream, programsList);
             }
         }
         public void loadSetting()
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (var fStream = File.OpenRead(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat"))
+            if (File.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\IntegraSetting.dat"))
             {
-                programsList = (List<ProgramSetting>)formatter.Deserialize(fStream);
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (var fStream = File.OpenRead(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\IntegraSetting.dat"))
+                {
+                    programsList = (List<ProgramSetting>)formatter.Deserialize(fStream);
+                }
             }
-            btnABOffice = loadButton(programsList.Find(x => x.id == 0), btnABOffice);
-            btnTeamViewer = loadButton(programsList.Find(x => x.id == 1), btnTeamViewer);
+            if(programsList.Count==0)
+            {
+                programsList.Add(new ProgramSetting()
+                {
+                    id = 100,
+                    image = btnABOffice.image,
+                    path = btnABOffice.path,
+                    name = btnABOffice.SetText,
+                    isVisible = true
+                });
+                programsList.Add(new ProgramSetting()
+                {
+                    id = 95,
+                    path = Application.StartupPath + "\\TeamViewer.exe",
+                    isVisible = true
+                });
+            }
+            btnABOffice = loadButton(programsList.Find(x => x.id == 100), btnABOffice);
+            btnTeamViewer.path = programsList.Find(x => x.id == 95).path;
+            update();
         }
 
         public UserButton loadButton(ProgramSetting setting, UserButton button)
@@ -119,7 +125,7 @@ namespace ABShell
             RegistryKey hkWindowsNT = hkMicrosoft.OpenSubKey("Windows NT");
             RegistryKey hkCurrentVersion = hkWindowsNT.OpenSubKey("CurrentVersion");
             RegistryKey hkWinlogon = hkCurrentVersion.OpenSubKey("Winlogon", true);
-            return (string)hkWinlogon.GetValue("Shell", "");
+            return (string)hkWinlogon.GetValue("Shell", "explorer.exe");
         }
 
         public void setDisp(bool value)
@@ -183,8 +189,7 @@ namespace ABShell
             Reboot power = new Reboot();
             power.Lock();
         }
-
-
+        
         private void btnSetting_Click(object sender, EventArgs e)
         {
             isSetting = !isSetting;
@@ -197,15 +202,13 @@ namespace ABShell
                     isSetting = false;
                     return;
                 }
-                MaximumSize = new Size(2000, max);
-                MinimumSize = new Size(505, max);
                 richTextBox1.BackColor = Color.White;
                 richTextBox1.BorderStyle = BorderStyle.FixedSingle;
+                btnSetting.BackColor = Color.FromName("ControlDarkDark");
             }
             else
             {
-                MaximumSize = new Size(2000, min);
-                MinimumSize = new Size(505, min);
+                btnSetting.BackColor = Control.DefaultBackColor;
                 richTextBox1.BackColor = Control.DefaultBackColor;
                 richTextBox1.BorderStyle = BorderStyle.None;
                 Properties.Settings.Default.Font = richTextBox1.Font;
@@ -216,8 +219,7 @@ namespace ABShell
             addBut.Visible = isSetting;
             btnFont.Visible = isSetting;
             ControlBox = isSetting;
-            btnClearSetting.Visible = isSetting;
-            label4.Visible = isSetting;
+            panel5.Visible = isSetting;
             richTextBox1.ReadOnly = !isSetting;
             update();
         }
@@ -230,36 +232,47 @@ namespace ABShell
         public void update()
         {
             pnContents.Controls.Clear();
-            
+            ToolTip hint = new ToolTip();
             int i = 0;
             foreach (ProgramSetting item in programsList)
             {
-                if (item.id == 0 || item.id == 1) 
+                if (item.id == 95)
+                {
+                    btnTeamViewer.path = item.path;
                     continue;
+                }
                 UserButton tmp = new UserButton();
                 tmp = item.getButton();
                 tmp.Click += button_Click;
-                tmp.Top = 0;
                 if (isSetting || item.isVisible)
                 {
-                    tmp.Left = i * 75;
+                    tmp.Left = (i % 7) * 76 + 3;
+                    tmp.Top = i / 7 * 93 + 3;
                     pnContents.Controls.Add(tmp);
                     i++;
                 }
             }
-            Button add = new Button();
-            add.Name = "addBut";
-            add.Width = 51;
-            add.Height = 51;
-            add.Top = 20;
-            add.Left = i * 75 + 14;
-            add.BackgroundImage = Properties.Resources.add_1078;
-            add.BackgroundImageLayout = ImageLayout.Stretch;
-            add.FlatStyle = FlatStyle.Flat;
-            add.FlatAppearance.BorderSize = 0;
-            add.Click += addBut_Click;
-            add.Visible = isSetting;
-            pnContents.Controls.Add(add);
+            if (isSetting)
+            {
+                Button add = new Button();
+                add.Name = "addBut";
+                add.Width = 51;
+                add.Height = 51;
+                add.Top = 20;
+                hint.SetToolTip(add, "Добавить кнопку");
+                add.Left = (i % 7) * 76 + 14;
+                add.Top = i / 7 * 93 + 14;
+                add.BackgroundImage = Properties.Resources.add_1078;
+                add.BackgroundImageLayout = ImageLayout.Stretch;
+                add.FlatStyle = FlatStyle.Flat;
+                add.FlatAppearance.BorderSize = 0;
+                add.Click += addBut_Click;
+                add.Visible = isSetting;
+                pnContents.Controls.Add(add);
+                Height = max + i / 7 * 93;
+            }
+            else
+                Height = min + (i-1) / 7 * 93;
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -267,7 +280,10 @@ namespace ABShell
             if (isSetting)
             {
                 SettingBut form = new SettingBut();
+                if(sender is UserButton)
                 form.setButton(sender as UserButton);
+                else
+                    form.setButton(sender as ButtonApp);
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.Abort)
                 {
@@ -288,7 +304,20 @@ namespace ABShell
             }
             else
             {
-                Process.Start((sender as UserButton).path);
+                string path = "";
+                if (sender is UserButton)
+                    path = (sender as UserButton).path;
+                else
+                    path = (sender as ButtonApp).path;
+                try
+                {
+                    Process.Start(path);
+                }
+                catch (Exception err)
+                {
+                    if (err.Message != "The operation was canceled by the user")
+                    MessageBox.Show("Файл " + path + " не найден!");
+                }
             }
         }
 
@@ -342,16 +371,16 @@ namespace ABShell
                 Controls.Remove(button);
         }
         
-        private void buttonApp2_Click(object sender, EventArgs e)
+        private void btnDescktop_Click(object sender, EventArgs e)
         {
             Autorization form = new Autorization();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                Process.Start((sender as ButtonApp).path);
+                Process.Start("explorer");
             }
         }
 
-        private void buttonApp4_Click(object sender, EventArgs e)
+        private void btnPrinters_Click(object sender, EventArgs e)
         {
             if (!isSetting)
             {
@@ -386,7 +415,7 @@ namespace ABShell
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Файл не найден!");
+                    MessageBox.Show("Файл " + (sender as UserButton).path + " не найден!");
                 }
 
             }
@@ -396,13 +425,8 @@ namespace ABShell
         {
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
         }
-
-        private void btnABOffice_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonApp1_Click(object sender, EventArgs e)
+        
+ /*       private void buttonApp1_Click(object sender, EventArgs e)
         {
             programsList.Clear();
             if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ABShellSetting.dat"))
@@ -421,19 +445,19 @@ namespace ABShell
                 path = "C:\\office4\\client\\O4Client.exe",
                 name = "АБ ОФИС",
                 isVisible = true
-            });
+            }); 
             programsList.Add(new ProgramSetting()
             {
                 id = 1,
                 image = Properties.Resources.TeamViewer,
                 path = Application.StartupPath + "\\TeamViewer.exe",
-                name = btnTeamViewer.SetText,
+                //name = btnTeamViewer.SetText,
                 isVisible = true
             });
-            btnABOffice = loadButton(programsList.Find(x => x.id == 0), btnABOffice);
-            btnTeamViewer = loadButton(programsList.Find(x => x.id == 1), btnTeamViewer);
+            //btnABOffice = loadButton(programsList.Find(x => x.id == 0), btnABOffice);
+            //btnTeamViewer = loadButton(programsList.Find(x => x.id == 1), btnTeamViewer);
             btnTeamViewer.path = Application.StartupPath + "\\TeamViewer.exe";
             update();
-        }
+        }*/
     }
 }

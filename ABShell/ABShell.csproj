@@ -135,6 +135,9 @@
     <EmbeddedResource Include="Autorization.resx">
       <DependentUpon>Autorization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ButtonApp.resx">
+      <DependentUpon>ButtonApp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ButtonNew.resx">
       <DependentUpon>ButtonNew.cs</DependentUpon>
     </EmbeddedResource>

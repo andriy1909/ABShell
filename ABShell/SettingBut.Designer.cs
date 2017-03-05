@@ -143,6 +143,7 @@
             this.btnVis.Size = new System.Drawing.Size(43, 47);
             this.btnVis.TabIndex = 21;
             this.btnVis.UseVisualStyleBackColor = true;
+            this.btnVis.Visible = false;
             this.btnVis.Click += new System.EventHandler(this.btnVis_Click);
             // 
             // button2
@@ -175,7 +176,7 @@
             // 
             // btnOpenPath
             // 
-            this.btnOpenPath.BackgroundImage = global::ABShell.Properties.Resources.experimentsfolder_8215;
+            this.btnOpenPath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenPath.BackgroundImage")));
             this.btnOpenPath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOpenPath.FlatAppearance.BorderSize = 0;
             this.btnOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -203,7 +204,7 @@
             // imgButtom
             // 
             this.imgButtom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgButtom.Image = global::ABShell.Properties.Resources.box_grey_1252;
+            this.imgButtom.Image = ((System.Drawing.Image)(resources.GetObject("imgButtom.Image")));
             this.imgButtom.Location = new System.Drawing.Point(17, 18);
             this.imgButtom.Name = "imgButtom";
             this.imgButtom.Size = new System.Drawing.Size(72, 72);

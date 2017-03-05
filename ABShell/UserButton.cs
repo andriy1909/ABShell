@@ -26,7 +26,7 @@ namespace ABShell
             set
             {
                 this.images = value;
-                button.Image = value;
+                button.image = value;
             }
         }
 
@@ -40,6 +40,8 @@ namespace ABShell
             {
                 this.name = value;
                 label1.Text = value;
+                ToolTip hint = new ToolTip();
+                hint.SetToolTip(button, name);
             }
         }
 
